@@ -7,6 +7,7 @@ const engine = new Liquid();
 engine.registerFilter('slugify', value => String(value).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, ''));
 const site = yaml.load(fs.readFileSync('_config.yml', 'utf8'));
 site.data = Object.fromEntries(['conferences', 'ai_conferences', 'filters', 'updates'].map(name => [name, yaml.load(fs.readFileSync(`_data/${name}.yml`, 'utf8'))]));
+site.data.catalogue = require('./catalogue.cjs').loadCatalogue();
 const out = path.join('.preview', site.baseurl.replace(/^\//, ''));
 (async () => {
   fs.mkdirSync(out, { recursive: true });

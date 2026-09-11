@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
+    "prepare:catalogue": "node scripts/prepare-catalogue.cjs",
     "test": "node --test tests/*.test.cjs",
     "preview:build": "node scripts/preview.cjs",
     "verify:site": "node scripts/verify-site.cjs",

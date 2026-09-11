@@ -6,12 +6,13 @@ const root = process.argv[2] || '_site';
 const html = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
 const attribution = fs.readFileSync(path.join(root, 'attribution.html'), 'utf8');
 const updates = fs.readFileSync(path.join(root, 'updates.html'), 'utf8');
-const conferences = ['conferences', 'ai_conferences'].flatMap(name => yaml.load(fs.readFileSync(`_data/${name}.yml`, 'utf8')));
+const conferences = require('./catalogue.cjs').loadCatalogue();
 const filterCount = Object.values(yaml.load(fs.readFileSync('_data/filters.yml', 'utf8'))).flat().length;
 const count = conferences.reduce((total, conference) => total + conference.deadline.length, 0);
 assert.equal((html.match(/class="conf"/g) || []).length, count);
 assert.equal((html.match(/class="filter-checkbox"/g) || []).length, filterCount);
 assert.ok(html.includes('id="AI-checkbox"'));
+assert.ok(html.includes('id="FORENSICS-checkbox"'));
 assert.ok(html.includes('공식 CFP'));
 assert.ok(html.includes('학회 확정(Commitment)'));
 assert.ok(html.includes('초록 등록 필수'));
@@ -22,6 +23,17 @@ for (const conf of conferences.filter(conf => conf.cfp)) {
 for (const article of articles.filter(article => article.includes('data-deadline-status="date_only"'))) {
   assert.ok(article.includes('공식 발표 날짜:'));
   assert.ok(!article.includes('원본 마감일:'), 'Unverified times must not be presented as official');
+}
+for (const conf of conferences.filter(conf => conf.tags.includes('FORENSICS') && conf.cfp)) {
+  const matching = articles.filter(article => article.includes(`href="${conf.cfp}"`));
+  for (const [i, article] of matching.entries()) {
+    assert.ok(article.includes(conf.deadline_labels[i]), `${conf.name}: missing submission stage`);
+    if (conf.deadline_status === 'date_only') {
+      assert.ok(article.includes((conf.announced_deadlines || [conf.announced_deadline])[i]), `${conf.name}: wrong date for this stage`);
+    } else {
+      assert.ok(article.includes(`data-deadline="${conf.deadline[i]}"`), `${conf.name}: upstream date incorrectly overrides verified CFP`);
+    }
+  }
 }
 assert.ok(html.includes('마지막 점검:'));
 assert.ok(updates.includes('페이지 변경 감지는 마감일을 다시 검증했다는 뜻이 아닙니다.'));
@@ -35,7 +47,7 @@ const ids = [...html.matchAll(/\bid="([^"]+)"/g)].map(match => match[1]);
 assert.equal(new Set(ids).size, ids.length, 'Every rendered DOM ID must be unique');
 for (const doc of [html, attribution, updates]) {
   assert.ok(!doc.includes('{%') && !doc.includes('{{'));
-  for (const [, url] of doc.matchAll(/(?:src|href)="(\/sec-deadlines\/[^"#?]*)"/g)) {
+  for (const [, url] of doc.matchAll(/(?:src|href)="(\/sec-deadlines\/[^"#?]*)(?:[?#][^"]*)?"/g)) {
     const relative = url.slice('/sec-deadlines/'.length) || 'index.html';
     assert.ok(fs.existsSync(path.join(root, decodeURIComponent(relative))), `Missing asset: ${url}`);
   }

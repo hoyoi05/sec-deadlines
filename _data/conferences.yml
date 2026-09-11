@@ -193,7 +193,7 @@
   comment: Abstract and title registration required by September 18, 2026 (AoE).
   date: March 30-April 2
   place: Edinburgh, Scotland
-  tags: [SEC, CONF, OTHERS]
+  tags: [SEC, CONF, OTHERS, FORENSICS]
 
 # Privacy
 
@@ -728,7 +728,7 @@
   deadline: ["2027-01-31 23:59"]
   date: March 25-26
   place: San Jose, CA, USA
-  tags: [SEC, PRIV, CONF, OTHERS]
+  tags: [SEC, PRIV, CONF, OTHERS, FORENSICS]
 
 # Software Engineering (Research Track only)
 - name: ICSE
@@ -818,7 +818,7 @@
   deadline: ["2025-04-20 23:59"]
   timezone: Etc/UTC
   place: Bonn, Germany
-  tags: [SEC, CONF, OTHERS]
+  tags: [SEC, CONF, OTHERS, FORENSICS]
 
 - name: SciSec
   description: International Conference on Science of Cyber Security
@@ -1843,7 +1843,7 @@
   comment: Co-located with ARES
   date: August 24-27
   place: Linköping, SE
-  tags: [SEC, SHOP, OTHERS]
+  tags: [SEC, SHOP, OTHERS, FORENSICS]
 
 - name: SAFE-EDGE
   description: Workshop on Security, Availability, and Fault-Tolerance in Edge AI Systems
@@ -2141,7 +2141,7 @@
   deadline: ["2026-07-15 23:59"]
   date: December 7-11
   place: Sendai, Japan
-  tags: [SEC, PRIV, SHOP, OTHERS]
+  tags: [SEC, PRIV, SHOP, OTHERS, FORENSICS]
 
 - name: TAKEDOWN
   description: ACM Technical Analysis and Knowledge Exchange on Disrupting Online Criminal Networks

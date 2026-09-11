@@ -38,6 +38,7 @@ jobs:
       - run: npm ci --ignore-scripts
       - run: node scripts/ensure-upstream.cjs
       - run: npm test
+      - run: npm run prepare:catalogue
       - name: Configure Pages
         uses: actions/configure-pages@983d7736d9b0ae728b81ab479565c72886d7745b # v5
       - name: Build with Jekyll

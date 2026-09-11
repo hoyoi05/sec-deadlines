@@ -6,7 +6,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>자동 갱신 상태 · {{ site.title }}</title>
-  <link rel="stylesheet" href="{{ site.baseurl }}/static/css/deadlines.css">
+  <link rel="stylesheet" href="{{ site.baseurl }}/static/css/deadlines.css?v={{ site.asset_version }}">
 </head>
 <body>
   <main class="document">
@@ -25,8 +25,8 @@
     {% if upstream.error %}<p class="notice">{{ upstream.error | escape }}</p>{% endif %}
     <p>반영 기준: <a href="{{ site.upstream_url }}/tree/{{ site.upstream_revision }}">원본 커밋 {{ site.upstream_revision | slice: 0, 7 }}</a> ·
       원본 갱신일 {{ site.upstream_updated }}</p>
-    <h2>AI 공식 페이지 점검</h2>
-    <p>등록된 공식 CFP와 다음 회차 공지를 확인할 수 있는 공식 홈페이지의 본문 변경을 점검합니다.
+    <h2>AI·디지털포렌식 공식 출처 점검</h2>
+    <p>등록된 공식 CFP와 다음 회차 공지를 확인할 수 있는 공식 홈페이지의 변경을 점검합니다. HTML은 본문을 비교하며, PDF CFP는 파일 변경을 감지합니다.
       <strong>페이지 변경 감지는 마감일을 다시 검증했다는 뜻이 아닙니다.</strong>
       새 회차·연장 공지·시간대 변경의 의미는 사람이 공식 CFP를 확인한 후 반영합니다. 기존 학회 항목의 ‘확인일’은 이 자동 점검으로 바뀌지 않습니다.</p>
     <p>‘변경 검토 필요’는 날짜 외의 문구 변경도 포함할 수 있으며, 검토한 내용을 기준으로 다시 저장할 때까지 유지됩니다.

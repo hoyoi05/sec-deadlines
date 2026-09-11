@@ -1,5 +1,5 @@
-title: 보안·AI 학회 마감일
-description: 보안·프라이버시·암호·AI 분야 학회 마감일을 대한민국 시간으로 확인하세요.
+title: 보안·AI·디지털포렌식 학회 마감일
+description: 보안·프라이버시·암호·AI·디지털포렌식 분야 학회 마감일을 대한민국 시간으로 확인하세요.
 author: hoyoi05
 
 url: "https://hoyoi05.github.io"
@@ -15,6 +15,8 @@ upstream_site: "https://sec-deadlines.github.io/"
 upstream_revision: "75dfb2da5ad38d312fadce2c046f196dac7d6d3a"
 upstream_updated: "2026-09-07"
 ai_cfp_checked: "2026-09-11"
+forensics_cfp_checked: "2026-09-11"
+asset_version: "20260911-forensics-1"
 
 markdown: kramdown
 exclude:

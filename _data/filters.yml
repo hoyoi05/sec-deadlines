@@ -11,6 +11,9 @@ filter1:
   - name: AI
     name_ko: AI (인공지능)
     tag: AI
+  - name: Digital Forensics
+    name_ko: 디지털포렌식
+    tag: FORENSICS
 
 filter2:
   - name: Conferences

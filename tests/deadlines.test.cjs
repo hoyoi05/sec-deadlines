@@ -6,7 +6,7 @@ const vm = require('node:vm');
 const yaml = require('js-yaml');
 const moment = require('moment-timezone');
 const core = require('../static/js/deadlines-core.js');
-const { AI_NAMES, LOCAL_FIELDS } = require('../scripts/upstream-data.cjs');
+const { AI_NAMES, FORENSICS_NAMES, LOCAL_FIELDS } = require('../scripts/upstream-data.cjs');
 const filters = yaml.load(fs.readFileSync('_data/filters.yml', 'utf8'));
 const conferences = yaml.load(fs.readFileSync('_data/conferences.yml', 'utf8'));
 const aiConferences = yaml.load(fs.readFileSync('_data/ai_conferences.yml', 'utf8'));
@@ -59,22 +59,23 @@ test('countdown boundary, ordering and unknown deadlines', () => {
   assert.equal(core.countdown(null, now), '추후 공지');
   assert.deepEqual([old, null, later, recent, soon].sort((a, b) => core.compareDeadlines(a, b, now)), [soon, later, recent, old, null]);
 });
-test('upstream records and filter rules remain intact apart from documented AI enrichment', () => {
+test('upstream records and filter rules remain intact apart from documented local enrichment', () => {
   const upstream = execFileSync('git', ['show', `${upstreamRevision}:_data/conferences.yml`], { encoding: 'utf8' });
   const originals = yaml.load(upstream);
   const taggedNames = originals.filter(conf => AI_NAMES.includes(conf.name) || conf.tags.includes('AI')).map(conf => conf.name).sort();
   assert.deepEqual(conferences.filter(conf => conf.tags.includes('AI')).map(conf => conf.name).sort(), taggedNames);
   assert.deepEqual(conferences.map((conf, i) => {
-    const result = { ...conf, tags: originals[i].tags.includes('AI') ? conf.tags : conf.tags.filter(tag => tag !== 'AI') };
+    const result = { ...conf, tags: conf.tags.filter(tag => !['AI', 'FORENSICS'].includes(tag) || originals[i].tags.includes(tag)) };
     for (const field of LOCAL_FIELDS) if (!Object.hasOwn(originals[i], field)) delete result[field];
     return result;
   }), originals);
   const upstreamFilters = yaml.load(execFileSync('git', ['show', `${upstreamRevision}:_data/filters.yml`], { encoding: 'utf8' }));
   for (const key of Object.keys(upstreamFilters)) {
-    assert.deepEqual(filters[key].filter(item => item.tag !== 'AI').map(({ name, tag }) => ({ name, tag })), upstreamFilters[key].filter(item => item.tag !== 'AI'));
+    assert.deepEqual(filters[key].filter(item => !['AI', 'FORENSICS'].includes(item.tag)).map(({ name, tag }) => ({ name, tag })), upstreamFilters[key].filter(item => !['AI', 'FORENSICS'].includes(item.tag)));
     assert.ok(filters[key].every(item => item.name_ko));
   }
   assert.deepEqual(filters.filter1.find(item => item.tag === 'AI'), { name: 'AI', name_ko: 'AI (인공지능)', tag: 'AI' });
+  assert.deepEqual(conferences.filter(conf => conf.tags.includes('FORENSICS')).map(conf => conf.name).sort(), originals.filter(conf => FORENSICS_NAMES.includes(conf.name) || conf.tags.includes('FORENSICS')).map(conf => conf.name).sort());
   for (const conference of [...conferences, ...aiConferences]) {
     for (const raw of conference.deadline) {
       if (/^(TBA|TBD)$/.test(raw)) continue;
@@ -132,5 +133,7 @@ test('event dates and submission notes translate without converting local event 
   assert.equal(core.localizeDate('May 17-20'), '5월 17일–20일');
   assert.equal(core.localizeDate('June 2026'), '6월 2026');
   assert.equal(core.localizeDate('TBA'), '추후 공지');
+  assert.equal(core.localizeComment('7월 22일까지 제출, 7월 29일은 수정 기한입니다.'), '7월 22일까지 제출, 7월 29일은 수정 기한입니다.');
+  assert.equal(core.localizeDate(core.localizeDate('July 25-26')), '7월 25일–26일');
   assert.equal(core.localizeComment('Co-located with ACSAC 2026'), 'ACSAC 2026와 함께 개최합니다.');
 });

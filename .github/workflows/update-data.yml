@@ -33,7 +33,7 @@ jobs:
           node-version: '22'
           cache: npm
       - run: npm ci --ignore-scripts
-      - name: Sync upstream data and check official AI pages
+      - name: Sync upstream data and check official CFP sources
         run: node scripts/update-data.cjs
       - run: node scripts/ensure-upstream.cjs
       - run: npm test

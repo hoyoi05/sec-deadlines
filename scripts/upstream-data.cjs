@@ -3,6 +3,7 @@ const yaml = require('js-yaml');
 const core = require('../static/js/deadlines-core.js');
 const UPSTREAM = 'https://github.com/sec-deadlines/sec-deadlines.github.io.git';
 const AI_NAMES = ['SAIS', 'SaTML', 'TRUST-AI', 'AIHWS', 'AIoTS', 'SiMLA', 'AISec', 'ARTMAN', 'LAST-X', 'SECAI', 'FL', 'WAITI', 'AI-SS', 'SAFE-EDGE', 'QCLLM', 'AI&CCPS', 'AgentCy', 'SAFE-ML', 'AICyDef', 'AIDC'];
+const FORENSICS_NAMES = ['DFC Europe', 'DFRWS EU', 'DFRWS USA', 'DFRWS APAC', 'DFC USA', 'DFC APAC', 'IFIP WG 11.9', 'ICDF2C', 'DFDS', 'ISDFS', 'IMF', 'WSDF', 'WIFS'];
 const LOCAL_FIELDS = ['cfp', 'checked_on', 'registration_deadline', 'registration_label', 'official_page', 'deadline_status', 'announced_deadline', 'source_note'];
 const key = conf => `${conf.name} ${conf.year}`;
 function git(args) { return execFileSync('git', args, { encoding: 'utf8', timeout: 120000, maxBuffer: 10_000_000 }).trim(); }
@@ -23,6 +24,7 @@ function enrichConferences(upstream, current) {
     const old = previous.get(key(conf));
     const result = { ...conf, tags: [...conf.tags] };
     if (AI_NAMES.includes(conf.name) && !result.tags.includes('AI')) result.tags.push('AI');
+    if (FORENSICS_NAMES.includes(conf.name) && !result.tags.includes('FORENSICS')) result.tags.push('FORENSICS');
     // Verification of an older cutoff must not be attached to a changed cutoff.
     if (old && JSON.stringify(old.deadline) === JSON.stringify(conf.deadline)
       && (old.timezone || 'Etc/GMT+12') === (conf.timezone || 'Etc/GMT+12')) {
@@ -36,6 +38,7 @@ function translateFilters(upstream, current) {
   const translations = new Map(Object.values(current).flat().map(item => [item.tag, item.name_ko]));
   const result = Object.fromEntries(Object.entries(upstream).map(([group, items]) => [group, items.map(item => ({ ...item, name_ko: translations.get(item.tag) || item.name }))]));
   if (!result.filter1.some(item => item.tag === 'AI')) result.filter1.push({ name: 'AI', name_ko: 'AI (인공지능)', tag: 'AI' });
+  if (!result.filter1.some(item => item.tag === 'FORENSICS')) result.filter1.push({ name: 'Digital Forensics', name_ko: '디지털포렌식', tag: 'FORENSICS' });
   return result;
 }
 function validateData(conferences, filters) {
@@ -60,9 +63,14 @@ function validateData(conferences, filters) {
     for (const deadline of [...conf.deadline, ...(conf.registration_deadline || [])]) {
       if (typeof deadline !== 'string' || (!/^(TBA|TBD)$/.test(deadline) && !core.parseDeadline(deadline, conf.year, conf.timezone))) throw new Error(`해석할 수 없는 마감일: ${key(conf)}`);
     }
-    for (const field of ['registration_deadline', 'deadline_labels']) {
+    for (const field of ['registration_deadline', 'deadline_labels', 'announced_deadlines']) {
       if (conf[field] && conf[field].length !== conf.deadline.length) throw new Error(`제출 단계 배열 길이 불일치: ${key(conf)}`);
+    }
+    if (conf.deadline_status === 'date_only') {
+      const dates = conf.announced_deadlines || [conf.announced_deadline];
+      if (dates.length !== conf.deadline.length || dates.some(date => !/^\d{4}-\d{2}-\d{2}$/.test(date) || !core.parseDeadline(`${date} 23:59`, conf.year, 'Etc/UTC'))) throw new Error(`공식 발표 날짜 오류: ${key(conf)}`);
+      if (!conf.cfp && !conf.official_page) throw new Error(`공식 날짜 출처 누락: ${key(conf)}`);
     }
   }
 }
-module.exports = { UPSTREAM, AI_NAMES, LOCAL_FIELDS, key, git, ensureRevision, readUpstream, enrichConferences, translateFilters, validateData };
+module.exports = { UPSTREAM, AI_NAMES, FORENSICS_NAMES, LOCAL_FIELDS, key, git, ensureRevision, readUpstream, enrichConferences, translateFilters, validateData };

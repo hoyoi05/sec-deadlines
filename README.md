@@ -1,7 +1,7 @@
-# 보안·AI 학회 마감일 — 한국어 · 대한민국 시간
+# 보안·AI·디지털포렌식 학회 마감일 — 한국어 · 대한민국 시간
 
 [Security and Privacy Conference Deadlines](https://sec-deadlines.github.io/)를 기반으로,
-보안·프라이버시·암호·AI 분야 학회 마감일을 한국어와 대한민국 시간으로 제공하기 위한 프로젝트입니다.
+보안·프라이버시·암호·AI·디지털포렌식 분야 학회 마감일을 한국어와 대한민국 시간으로 제공하기 위한 프로젝트입니다.
 
 - 저장소: [hoyoi05/sec-deadlines](https://github.com/hoyoi05/sec-deadlines)
 - 원본 소스: [sec-deadlines/sec-deadlines.github.io](https://github.com/sec-deadlines/sec-deadlines.github.io)
@@ -10,8 +10,8 @@
 - 배포 대상: GitHub Pages
 - 사이트 주소: [hoyoi05.github.io/sec-deadlines](https://hoyoi05.github.io/sec-deadlines/)
 
-원본의 3개 필터 그룹과 12개 태그를 유지하고, 연구 분야에 `AI` 태그를 추가했습니다(총 13개 태그).
-Security(보안), Privacy(프라이버시), Crypto(암호), AI(인공지능)로 한국어 필터링할 수 있으며, 교차 분야 학회에는 여러 태그를 붙입니다.
+원본의 3개 필터 그룹과 12개 태그를 유지하고, 연구 분야에 `AI`, `FORENSICS`를 추가했습니다(총 14개 태그).
+Security(보안), Privacy(프라이버시), Crypto(암호), AI(인공지능), Digital Forensics(디지털포렌식)로 한국어 필터링할 수 있으며, 교차 분야 학회에는 여러 태그를 붙입니다.
 같은 그룹 안에서는 OR, 그룹 간에는 AND로 결합합니다. 필터는 URL로 공유하고 브라우저에 저장할 수 있습니다.
 원본의 영문 필터 URL과 한국어 이름·태그를 사용한 URL도 인식합니다.
 
@@ -57,7 +57,34 @@ AoE 기본값(UTC−12), 연도 템플릿, 정각 1초 전·59분의 59초 보�
 [SAIS 2027 공식 발표](https://www.usenix.org/conference/sais27)는 날짜만 공개되어 있어, 원본 데이터는 보존하되 시각·시간대 확인 전 환산을 보류합니다.
 나머지 기존 항목의 마감일은 원본 데이터를 사용하며, 화면에서 ‘원본 데이터’ 출처로 구분합니다.
 새 AI 학회의 CORE 등급은 검증 전이므로 임의로 부여하지 않았습니다. 등급 필터를 선택하면 해당 항목은 제외됩니다.
-하단의 원본 iCal 구독에는 이 사이트에서 추가한 AI 일정이 포함되지 않습니다.
+하단의 원본 iCal 구독에는 이 사이트에서 추가·정정한 AI·디지털포렌식 일정이 포함되지 않습니다.
+
+## 디지털포렌식 학회와 공식 CFP
+
+2026년 9월 11일 공식 CFP를 확인하여 학회·워크숍 5개를 새로 추가하고 기존 항목 5개를 재검증했습니다.
+[디지털포렌식 필터](https://hoyoi05.github.io/sec-deadlines/?domain=Digital+Forensics)에서 10개 학회·워크숍의 12개 제출 단계를 확인할 수 있습니다.
+다음 표의 날짜는 **공식 출처 기준**이며, 시간대가 명시된 항목만 사이트에서 KST로 환산합니다.
+
+| 학회·회차 | 공식 CFP | 확인한 제출 마감 |
+| --- | --- | --- |
+| DFC Europe 2027 (기존) | [CFP](https://dfrws.org/call-for-papers-dfc-europe-2027/) | 초록 9/18, 본문 9/25, 2026 AoE |
+| DFRWS USA 2026 (신규) | [CFP](https://dfrws.org/call-for-papers-is-open-for-dfrws-usa-2026/) | 초록·본문 모두 2/6, 2026 AoE |
+| DFRWS APAC 2026 (신규) | [CFP](https://dfrws.org/conferences/dfrws-apac-2026/) | 초록 5/29, 본문 6/5, 2026 23:59 AoE |
+| IFIP WG 11.9 2027 (신규) | [공식 PDF](https://www.ifip119.org/Conferences/WG11-9-CFP-2027.pdf) | 논문·패널 2026-10-10, 시각·시간대 미공개 |
+| ICDF2C 2026 (신규) | [CFP](https://icdf2c.eai-conferences.org/2026/call-for-papers/) | 메인 2026-01-20, 최종 모집 2026-04-25, 시각·시간대 미공개 |
+| DFDS 2027 (신규) | [CFP](https://dfrws.org/conferences/dfds-2027/) | 학생 주저자 논문 2026-11-12 AoE |
+| ISDFS 2027 (기존) | [CFP](https://www.isdfs.org/2027/call-for-papers/) | 2027-01-31, 시각·시간대 미공개 |
+| IMF 2026 (정정) | [CFP](https://www.imf-conference.org/cfp.html) | 연장된 마감 2026-05-04 23:59 UTC |
+| WSDF 2026 (정정) | [CFP](https://www.ares-conference.eu/wsdf) | 2026-05-05, 시각·시간대 미공개 |
+| WIFS 2026 (정정) | [CFP](https://wifs2026.utt.fr/call-for-papers) | 신규 제출 2026-07-22, 기제출 논문 수정 2026-07-29, 시각·시간대 미공개 |
+
+공식 확인 결과는 `_data/forensics_conferences.yml`에 관리합니다. `_data/conferences.yml`의 원본 필드는 그대로 보존하고,
+화면에 표시할 때 같은 `name`·`year`의 포렌식 검증 항목을 우선합니다. IMF의 잘못된 연도와 WSDF·WIFS의 변경 전 날짜가 자동 동기화로 되돌아가지 않습니다.
+각 포렌식 레코드에는 공식 CFP, 확인일, 제출 단계와 한국어 안내를 붙였으며, 신규 항목에 CORE 등급을 임의로 부여하지 않았습니다.
+날짜만 공개된 복수 단계는 `announced_deadlines`와 `deadline_labels`의 같은 인덱스로 대응시킵니다.
+
+`scripts/catalogue.cjs`가 원본·AI·포렌식 데이터를 합치고 중복을 검사합니다. 미리보기와 배포 검증은 같은 함수를 사용합니다.
+Jekyll을 직접 실행하려면 먼저 `npm run prepare:catalogue`로 `_data/catalogue.yml`을 생성하세요. 생성 파일은 Git에 커밋하지 않습니다.
 
 ## 개발 및 배포
 
@@ -72,8 +99,9 @@ python -m http.server 4173 --bind 127.0.0.1 --directory .preview
 
 로컬 미리보기: `http://127.0.0.1:4173/sec-deadlines/`.
 미리보기는 LiquidJS를 사용하고, 실제 배포는 GitHub의 Jekyll 빌드로 검증합니다.
-`master` 푸시 시 `.github/workflows/pages.yml`이 테스트 → Jekyll 빌드 → 생성물 검증 → Pages 배포를 수행합니다.
+`master` 푸시 시 `.github/workflows/pages.yml`이 테스트 → 통합 학회 데이터 생성 → Jekyll 빌드 → 생성물 검증 → Pages 배포를 수행합니다.
 사이트 설정의 `baseurl: /sec-deadlines`를 유지해야 CSS·스크립트·출처 안내 경로가 올바르게 연결됩니다.
+CSS·JavaScript를 변경할 때 `_config.yml`의 `asset_version`도 갱신하여 이전 브라우저 캐시가 새 화면에 섞이지 않게 합니다.
 
 ## 지속 업데이트
 
@@ -82,11 +110,11 @@ GitHub Actions의 UTC 일정으로 설정했으며, Actions 화면에서 **Run w
 별도 API 키·개인 액세스 토큰 없이 저장소의 기본 `GITHUB_TOKEN`을 사용합니다.
 
 1. 원본 저장소 `master`의 학회 데이터와 필터 정의를 가져옵니다. 원본 코드나 워크플로는 가져와 실행하지 않습니다.
-2. 한국어 필터명과 AI 태그를 유지하면서 원본 마감일 변경과 새 학회·회차를 반영합니다. 마감 시각이 변경되면 이전 시각을 기준으로 확인한 CFP·사전 등록 메타데이터는 제거합니다.
-3. 등록된 AI 공식 CFP·발표 페이지와 공식 홈페이지의 본문 변경을 점검합니다. 홈페이지 점검은 다음 회차 공지를 발견하기 위한 보조 기능입니다.
+2. 한국어 필터명과 AI·디지털포렌식 태그를 유지하면서 원본 마감일 변경과 새 학회·회차를 반영합니다. 마감 시각이 변경되면 이전 시각을 기준으로 확인한 CFP·사전 등록 메타데이터는 제거합니다. 별도 포렌식 검증 항목은 원본 동기화 후에도 우선 표시합니다.
+3. 등록된 AI·디지털포렌식 공식 CFP·발표 페이지와 공식 홈페이지의 변경을 점검합니다. HTML은 본문을 비교하고 PDF는 파일 해시를 비교합니다. 홈페이지 점검은 다음 회차 공지를 발견하기 위한 보조 기능입니다.
 4. 데이터·시간대·중복·회귀 테스트를 통과하면 봇이 변경과 점검 기록을 커밋합니다. 동일 실행에서 재사용 Pages 워크플로를 호출하여 그 커밋을 배포합니다.
 
-**원본 데이터는 자동 갱신되며, AI CFP의 의미 해석과 신규 회차 등록은 검토 후 반영합니다.**
+**원본 데이터는 자동 갱신되며, AI·디지털포렌식 CFP의 의미 해석과 신규 회차 등록은 검토 후 반영합니다.**
 CFP마다 초록·본문·수정본·특별 트랙·시간대의 표기 방식이 달라 본문 변경만으로 마감일을 덮어쓰지 않습니다.
 자동 점검은 `checked_on`(사람이 CFP에서 마감일을 확인한 날짜)을 변경하지 않습니다.
 현재 등록된 공식 URL만 점검하므로 모든 새 학회·회차를 자동 발견하는 기능은 아닙니다.
@@ -105,7 +133,7 @@ npm run update:data
 
 검토한 출처만 개별 갱신하세요. `sources/cfp-baselines.json`에는 본문 전체 대신 SHA-256과 기준 생성 시각만 저장합니다.
 공식 홈페이지 추가·수정은 `scripts/official-homepages.json`에서 관리합니다.
-원본 보안 학회의 AI 분류 목록은 `scripts/upstream-data.cjs`의 `AI_NAMES`에 있으며, 같은 이름의 새 회차에도 이어집니다.
+원본 보안 학회의 추가 분류 목록은 `scripts/upstream-data.cjs`의 `AI_NAMES`, `FORENSICS_NAMES`에 있으며, 같은 이름의 새 회차에도 이어집니다.
 
 GitHub의 예약 실행은 부하에 따라 지연되거나 누락될 수 있고, 공개 저장소에 60일간 활동이 없으면 비활성화될 수 있습니다.
 오랫동안 점검 시각이 갱신되지 않으면 Actions 실행 상태를 확인하세요.
@@ -114,8 +142,8 @@ GitHub의 예약 실행은 부하에 따라 지연되거나 누락될 수 있고
 [GitHub 워크플로 트리거 안내](https://docs.github.com/en/actions/how-tos/write-workflows/choose-when-workflows-run/trigger-a-workflow).
 
 학회 데이터 갱신 시 `_data/conferences.yml`과 `_config.yml`의 `upstream_revision`, `upstream_updated`를 함께 갱신하세요.
-AI 일정은 각 공식 CFP에서 트랙·시각·시간대·사전 등록 요건을 확인한 뒤 `_data/ai_conferences.yml`과 확인일을 갱신하세요.
-기존 보안 학회의 AI 태그·검증 메타데이터를 제외한 원본 필드는 회귀 테스트로 원본 커밋과 비교합니다.
+AI·디지털포렌식 일정은 각 공식 CFP에서 트랙·시각·시간대·사전 등록 요건을 확인한 뒤 `_data/ai_conferences.yml` 또는 `_data/forensics_conferences.yml`과 확인일을 갱신하세요.
+기존 보안 학회의 추가 태그·검증 메타데이터를 제외한 원본 필드는 회귀 테스트로 원본 커밋과 비교합니다.
 기존 태그의 `name`·`tag`는 원본 값을 유지하고 한국어 표시는 `name_ko`에서 관리합니다.
 
 로컬 Git의 `origin`은 이 저장소, `upstream`은 원본 저장소를 가리킵니다.

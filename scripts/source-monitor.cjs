@@ -3,8 +3,8 @@ const crypto = require('node:crypto');
 // Compare readable page content, ignoring common navigation and executable assets.
 // This detects document changes; it deliberately does not interpret them as new deadlines.
 function normalizeHTML(html) {
-  const main = html.match(/<main\b[^>]*>([\s\S]*?)<\/main>/i);
-  return (main ? main[1] : html)
+  const main = [...html.matchAll(/<main\b[^>]*>([\s\S]*?)<\/main>/gi)].map(match => match[1]);
+  const readable = value => value
     .replace(/<!--[\s\S]*?-->/g, ' ')
     .replace(/<(script|style|nav|header|footer|svg|head)\b[^>]*>[\s\S]*?<\/\1>/gi, ' ')
     .replace(/<[^>]+>/g, ' ')
@@ -14,9 +14,16 @@ function normalizeHTML(html) {
     })
     .replace(/&(nbsp|amp|quot|apos|lt|gt);/gi, (_, name) => ({ nbsp: ' ', amp: '&', quot: '"', apos: "'", lt: '<', gt: '>' })[name.toLowerCase()])
     .normalize('NFKC').replace(/\s+/g, ' ').trim();
+  const text = readable(main.length ? main.join(' ') : html);
+  // Some official sites use <main> for a mobile menu and place the CFP outside it.
+  return main.length && text.length < 150 ? readable(html) : text;
 }
 
 function fingerprint(html) {
+  if (Buffer.isBuffer(html)) {
+    if (html.length < 150 || html.subarray(0, 5).toString('ascii') !== '%PDF-') throw new Error('정상 PDF 응답이 아닙니다.');
+    return crypto.createHash('sha256').update(html).digest('hex');
+  }
   if (/<title[^>]*>\s*(?:just a moment|access denied|attention required)/i.test(html)) throw new Error('접근 확인 화면이 반환되었습니다.');
   const text = normalizeHTML(html);
   if (text.length < 150) throw new Error('본문이 너무 짧아 정상 CFP 응답인지 확인할 수 없습니다.');
@@ -43,10 +50,12 @@ async function fetchPage(url, fetcher = fetch) {
   if (parsed.protocol !== 'https:') throw new Error('공식 HTTPS URL만 점검합니다.');
   const response = await fetcher(url, {
     signal: AbortSignal.timeout(20000),
-    headers: { 'User-Agent': 'sec-deadlines-ko-source-monitor/1.0 (+https://github.com/hoyoi05/sec-deadlines)', Accept: 'text/html' }
+    headers: { 'User-Agent': 'sec-deadlines-ko-source-monitor/1.0 (+https://github.com/hoyoi05/sec-deadlines)', Accept: 'text/html, application/pdf' }
   });
   if (!response.ok) throw new Error(`HTTP ${response.status}`);
-  if (!response.headers.get('content-type')?.includes('text/html')) throw new Error('HTML 페이지가 아닙니다.');
+  const type = response.headers.get('content-type') || '';
+  const pdf = type.includes('application/pdf');
+  if (!pdf && !type.includes('text/html')) throw new Error('HTML 또는 PDF 문서가 아닙니다.');
   if (Number(response.headers.get('content-length')) > 2_000_000) throw new Error('페이지 크기 제한 초과');
   // Bound streaming responses as well as Content-Length responses.
   const reader = response.body.getReader();
@@ -61,7 +70,8 @@ async function fetchPage(url, fetcher = fetch) {
       chunks.push(Buffer.from(value));
     }
   } finally { await reader.cancel().catch(() => {}); }
-  return Buffer.concat(chunks).toString('utf8');
+  const body = Buffer.concat(chunks);
+  return pdf ? body : body.toString('utf8');
 }
 
 async function monitorSources(sources, baselines, previous, now, fetcher = fetchPage) {

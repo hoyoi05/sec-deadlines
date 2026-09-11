@@ -102,5 +102,61 @@
   "https://www.aclweb.org/portal/events": {
     "hash": "07ff110d75b730c64565059f1012bf99acc106b0711c875b65b0803ef5d89d18",
     "recorded_at": "2026-09-11T07:34:53.437Z"
+  },
+  "https://icdf2c.eai-conferences.org/2026/call-for-papers/": {
+    "hash": "984eb64f7bb8c95cac8a512b92b7a43ad97789df75c838087ce4742fafd9374d",
+    "recorded_at": "2026-09-11T07:53:42.259Z"
+  },
+  "https://www.ifip119.org/Conferences/WG11-9-CFP-2027.pdf": {
+    "hash": "b3b57dd82fca2a0c461f515915983eadb1b0926aa76f346cb92be743289a61dd",
+    "recorded_at": "2026-09-11T07:53:42.259Z"
+  },
+  "https://www.imf-conference.org/cfp.html": {
+    "hash": "2e443a8522b9d76ca12ee8db0c0af916cb9c5cce927cee9563fd4997fa48c703",
+    "recorded_at": "2026-09-11T07:53:42.259Z"
+  },
+  "https://www.isdfs.org/2027/call-for-papers/": {
+    "hash": "1d082ddc15df8046caf380f5cac9a4e94bef862de5fe8d8e7742df752bf3c2ea",
+    "recorded_at": "2026-09-11T07:53:42.259Z"
+  },
+  "https://wifs2026.utt.fr/call-for-papers": {
+    "hash": "3160dcd746481a10ab337cac23f915e47a7d389434c037b1118b0cf088aae88d",
+    "recorded_at": "2026-09-11T07:53:42.259Z"
+  },
+  "https://dfrws.org/conferences/dfceurope2027/": {
+    "hash": "4910137fcb11a63f78bebccf016cf6654a83a2a253ff7b06436353e1f570169d",
+    "recorded_at": "2026-09-11T07:53:42.259Z"
+  },
+  "https://www.ifip119.org/Conferences/": {
+    "hash": "6416bc19860bed1d1b66f5842a88e9f48908acdae387f35b1d6a5d895aad28e7",
+    "recorded_at": "2026-09-11T07:53:42.259Z"
+  },
+  "https://icdf2c.eai-conferences.org/": {
+    "hash": "4ca970e9a52b50a82f41188cc1ae8c8b05ea37e0a5e8f97ca8e832f29a2e89e0",
+    "recorded_at": "2026-09-11T07:53:42.259Z"
+  },
+  "https://www.isdfs.org/2027/important-dates/": {
+    "hash": "b603e4f2fabf2c78857c5734fb2023378b17c6baee3a66e38cc261f87f6011f7",
+    "recorded_at": "2026-09-11T07:53:42.259Z"
+  },
+  "https://www.isdfs.org/": {
+    "hash": "2d67d47308433faf334d4e3efb61cec5a0c1f030ba79221e31b31c74e2a10f6d",
+    "recorded_at": "2026-09-11T07:53:42.259Z"
+  },
+  "https://wifs2026.utt.fr/important-dates": {
+    "hash": "1176e2f69d2faa1723ca6dbe8269b83bbcd1f0ebaf321db852f8337887d5cf38",
+    "recorded_at": "2026-09-11T07:53:42.259Z"
+  },
+  "https://dfrws.org/call-for-papers-is-open-for-dfrws-usa-2026/": {
+    "hash": "2256990a0b9aedad3855ca7faee68aa3fad7ecdbe870dd9347aea458145f4fe0",
+    "recorded_at": "2026-09-11T07:55:31.437Z"
+  },
+  "https://www.ares-conference.eu/wsdf": {
+    "hash": "812c5d1cedb2349280a078b0e25200ff86cfb0576770724949b57366df387d7c",
+    "recorded_at": "2026-09-11T07:55:31.437Z"
+  },
+  "https://dfrws.org/conferences/dfrws-usa-2026/": {
+    "hash": "8bc701c1ed12be69fdb87568db633768218b4eb8db64378ce3e517cfb137f2ad",
+    "recorded_at": "2026-09-11T07:55:31.437Z"
   }
 }

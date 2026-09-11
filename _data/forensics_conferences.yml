@@ -1,0 +1,154 @@
+# Official CFPs checked on 2026-09-11. Matching name/year entries override
+# upstream only in the rendered catalogue; the original file remains intact.
+# No time or timezone is invented for date-only CFPs.
+- name: DFC Europe
+  description: Digital Forensics Conference Europe (구 DFRWS EU)
+  year: 2027
+  link: https://dfrws.org/conferences/dfceurope2027/
+  cfp: https://dfrws.org/call-for-papers-dfc-europe-2027/
+  checked_on: '2026-09-11'
+  dblp: https://dblp.org/db/conf/dfrws/index.html
+  deadline: ['2026-09-25 23:59']
+  deadline_labels: ['연구 논문 제출']
+  timezone: Etc/GMT+12
+  registration_deadline: ['2026-09-18 23:59']
+  registration_label: 제목·초록 등록 필수
+  date: March 30 - April 2
+  place: Edinburgh, Scotland
+  tags: [SEC, FORENSICS, CONF, OTHERS]
+
+- name: DFRWS USA
+  description: Digital Forensics Research Conference USA
+  year: 2026
+  link: https://dfrws.org/conferences/dfrws-usa-2026/
+  cfp: https://dfrws.org/call-for-papers-is-open-for-dfrws-usa-2026/
+  checked_on: '2026-09-11'
+  deadline: ['2026-02-06 23:59']
+  deadline_labels: ['연구 논문 제출 (연장)']
+  timezone: Etc/GMT+12
+  registration_deadline: ['2026-02-06 23:59']
+  registration_label: 제목·초록 등록 필수
+  date: July 25-30
+  place: Arlington, VA, USA
+  tags: [SEC, FORENSICS, CONF]
+  comment: 공식 마감표에서 제목·초록 등록과 본문 업로드 모두 2월 6일 AoE로 확인했습니다. 제목·초록을 먼저 등록해야 합니다. 7월 25–26일 사전 워크숍을 포함한 개최 일정입니다.
+
+- name: DFRWS APAC
+  description: Digital Forensics Research Conference Asia-Pacific
+  year: 2026
+  link: https://dfrws.org/conferences/dfrws-apac-2026/
+  cfp: https://dfrws.org/conferences/dfrws-apac-2026/
+  checked_on: '2026-09-11'
+  deadline: ['2026-06-05 23:59']
+  deadline_labels: ['연구 논문 제출 (연장)']
+  timezone: Etc/GMT+12
+  registration_deadline: ['2026-05-29 23:59']
+  registration_label: 제목·초록·저자 등록 필수
+  date: October 19-22
+  place: Singapore
+  tags: [SEC, FORENSICS, CONF]
+
+- name: IFIP WG 11.9
+  description: IFIP WG 11.9 International Conference on Digital Forensics
+  year: 2027
+  link: https://www.ifip119.org/Conferences/
+  cfp: https://www.ifip119.org/Conferences/WG11-9-CFP-2027.pdf
+  checked_on: '2026-09-11'
+  deadline: ['TBA']
+  deadline_status: date_only
+  announced_deadline: '2026-10-10'
+  deadline_labels: ['논문·패널 제안 제출']
+  date: January 7-8
+  place: New Delhi, India
+  tags: [SEC, FORENSICS, CONF]
+  comment: 공식 CFP PDF는 제출 날짜만 명시합니다. 시각·시간대 확인 전 한국 시간 환산을 보류합니다.
+
+- name: ICDF2C
+  description: EAI International Conference on Digital Forensics & Cyber Crime
+  year: 2026
+  link: https://icdf2c.eai-conferences.org/2026/
+  cfp: https://icdf2c.eai-conferences.org/2026/call-for-papers/
+  checked_on: '2026-09-11'
+  deadline: ['TBA', 'TBA']
+  deadline_status: date_only
+  announced_deadlines: ['2026-01-20', '2026-04-25']
+  deadline_labels: ['메인 트랙 논문 제출', '최종 모집 (Final Round) 논문 제출']
+  date: September 8-10
+  place: Reykjavík, Iceland
+  tags: [SEC, FORENSICS, CONF]
+  comment: 공식 CFP에 명시된 메인 트랙과 최종 모집의 제출 날짜입니다. 중간 심사 통지일은 제출 마감일로 포함하지 않았으며, 제출 시각·시간대는 미공개입니다.
+
+- name: DFDS
+  description: Digital Forensics Doctoral Symposium
+  year: 2027
+  link: https://dfrws.org/conferences/dfds-2027/
+  cfp: https://dfrws.org/conferences/dfds-2027/
+  checked_on: '2026-09-11'
+  deadline: ['2026-11-12 23:59']
+  deadline_labels: ['박사과정 심포지엄 논문 제출']
+  timezone: Etc/GMT+12
+  date: March 30
+  place: Edinburgh, Scotland
+  tags: [SEC, FORENSICS, SHOP]
+  comment: DFC Europe 2027과 함께 개최합니다. 주저자는 학생이어야 하며, 별도 심사와 ACM DFDS 논문집으로 운영됩니다.
+
+- name: ISDFS
+  description: International Symposium on Digital Forensics and Security
+  year: 2027
+  link: https://www.isdfs.org/2027/
+  cfp: https://www.isdfs.org/2027/call-for-papers/
+  checked_on: '2026-09-11'
+  deadline: ['TBA']
+  deadline_status: date_only
+  announced_deadline: '2027-01-31'
+  deadline_labels: ['논문 제출']
+  date: March 25-26
+  place: San Jose, CA, USA
+  tags: [SEC, PRIV, FORENSICS, CONF, OTHERS]
+  comment: 공식 CFP와 Important Dates의 제출 날짜를 확인했습니다. 시각·시간대가 없어 원본의 기본 AoE 환산을 적용하지 않습니다.
+
+- name: IMF
+  description: International Conference on IT Security Incident Management and IT Forensics
+  year: 2026
+  link: https://www.imf-conference.org/cfp.html
+  cfp: https://www.imf-conference.org/cfp.html
+  checked_on: '2026-09-11'
+  deadline: ['2026-05-04 23:59']
+  deadline_labels: ['논문·발표 제안 제출 (연장)']
+  timezone: Etc/UTC
+  date: September 15-16
+  place: Bonn, Germany
+  tags: [SEC, FORENSICS, CONF, OTHERS]
+  source_note: 공식 CFP의 연장된 마감일을 반영했습니다. 원본 데이터의 2025년 4월 20일 표기는 사용하지 않습니다.
+
+- name: WSDF
+  description: International Workshop on Digital Forensics
+  year: 2026
+  link: https://www.ares-conference.eu/wsdf
+  cfp: https://www.ares-conference.eu/wsdf
+  checked_on: '2026-09-11'
+  deadline: ['TBA']
+  deadline_status: date_only
+  announced_deadline: '2026-05-05'
+  deadline_labels: ['워크숍 논문 제출']
+  date: August 24-27
+  place: Linköping, Sweden
+  tags: [SEC, FORENSICS, SHOP, OTHERS]
+  comment: ARES 2026과 함께 개최합니다. 공식 워크숍 CFP의 마감 날짜를 반영했으며, 시각·시간대는 미공개입니다.
+  source_note: 원본 데이터의 4월 15일 대신 공식 CFP에 게시된 5월 5일을 표시합니다.
+
+- name: WIFS
+  description: IEEE International Workshop on Information Forensics and Security
+  year: 2026
+  link: https://wifs2026.utt.fr/call-for-papers
+  cfp: https://wifs2026.utt.fr/call-for-papers
+  checked_on: '2026-09-11'
+  deadline: ['TBA', 'TBA']
+  deadline_status: date_only
+  announced_deadlines: ['2026-07-22', '2026-07-29']
+  deadline_labels: ['논문 제출 (연장)', '기제출 논문 수정 마감']
+  date: December 7-11
+  place: Sendai, Japan
+  tags: [SEC, PRIV, FORENSICS, SHOP, OTHERS]
+  comment: 신규 논문 제출은 7월 22일까지이며, 7월 29일은 이미 제출한 논문의 수정 기한입니다. 공식 CFP와 Important Dates에 시각·시간대가 없어 KST 환산을 보류합니다.
+  source_note: 공식 CFP에서 7월 15일을 7월 22일로 연장한 사실을 확인했습니다.

@@ -70,7 +70,7 @@
     return text.replace(/\b(TBA|TBD)\b/g, '추후 공지')
       .replace(/\b(\d+)(st|nd|rd|th)\b/g, '$1')
       .replace(/\b(January|Jan|February|Feb|March|Mar|April|Apr|May|June|Jun|July|Jul|August|Aug|September|Sept|Sep|October|Oct|November|Nov|December|Dec)\b\.?/gi, month => `${months[month.toLowerCase().replace('.', '')]}월`)
-      .replace(/(\d+월)\s*(\d{1,2})(?!\d)(?:\s*[-–]\s*(\d{1,2})(?![\d월]))?/g, (_, month, first, last) => `${month} ${Number(first)}일${last ? `–${Number(last)}일` : ''}`)
+      .replace(/(\d+월)\s*(\d{1,2})(?![\d일])(?:\s*[-–]\s*(\d{1,2})(?![\d월일]))?/g, (_, month, first, last) => `${month} ${Number(first)}일${last ? `–${Number(last)}일` : ''}`)
       .replace(/\s+-\s+/g, ' – ');
   }
 

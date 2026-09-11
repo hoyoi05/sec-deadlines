@@ -13,6 +13,9 @@ test('page comparison ignores formatting and scripts while retaining date/timezo
   assert.notEqual(fingerprint(page('September 25')), fingerprint(page('September 26')));
   assert.notEqual(fingerprint(page('September 25')), fingerprint(page('September 25').replace('UTC-12', 'UTC+9')));
   assert.throws(() => fingerprint('<title>Just a moment</title>' + page('September 25')));
+  const menuMain = '<main><nav>Menu</nav></main><section>' + page('May 5').replace(/<\/?main>/g, '') + '</section>';
+  assert.ok(normalizeHTML(menuMain).includes('May 5'));
+  assert.notEqual(fingerprint(menuMain), fingerprint(menuMain.replace('May 5', 'May 12')));
 });
 test('detected source changes remain pending on subsequent runs until reviewed', () => {
   const initial = assessSource(source, page('September 25'), undefined, undefined, now);
