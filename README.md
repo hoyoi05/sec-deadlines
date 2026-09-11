@@ -1,7 +1,7 @@
-# 보안 학회 마감일 — 한국어 · 대한민국 시간
+# 보안·AI 학회 마감일 — 한국어 · 대한민국 시간
 
 [Security and Privacy Conference Deadlines](https://sec-deadlines.github.io/)를 기반으로,
-보안·프라이버시·암호 분야 학회 마감일을 한국어와 대한민국 시간으로 제공하기 위한 프로젝트입니다.
+보안·프라이버시·암호·AI 분야 학회 마감일을 한국어와 대한민국 시간으로 제공하기 위한 프로젝트입니다.
 
 - 저장소: [hoyoi05/sec-deadlines](https://github.com/hoyoi05/sec-deadlines)
 - 원본 소스: [sec-deadlines/sec-deadlines.github.io](https://github.com/sec-deadlines/sec-deadlines.github.io)
@@ -10,12 +10,14 @@
 - 배포 대상: GitHub Pages
 - 사이트 주소: [hoyoi05.github.io/sec-deadlines](https://hoyoi05.github.io/sec-deadlines/)
 
-원본의 3개 필터 그룹과 12개 태그를 유지하며, 한국어로 필터링할 수 있습니다.
+원본의 3개 필터 그룹과 12개 태그를 유지하고, 연구 분야에 `AI` 태그를 추가했습니다(총 13개 태그).
+Security(보안), Privacy(프라이버시), Crypto(암호), AI(인공지능)로 한국어 필터링할 수 있으며, 교차 분야 학회에는 여러 태그를 붙입니다.
 같은 그룹 안에서는 OR, 그룹 간에는 AND로 결합합니다. 필터는 URL로 공유하고 브라우저에 저장할 수 있습니다.
 원본의 영문 필터 URL과 한국어 이름·태그를 사용한 URL도 인식합니다.
 
-원본 마감일과 시간대 정보를 유지하고 표시 시점에 `Asia/Seoul`로 변환합니다.
+원본 마감일과 시간대 정보를 보존하고 표시 시점에 `Asia/Seoul`로 변환합니다.
 AoE 기본값(UTC−12), 연도 템플릿, 정각 1초 전·59분의 59초 보정 규칙은 원본과 같습니다.
+공식 발표에 날짜만 있고 시각·시간대가 미공개인 항목은 `deadline_status: date_only`로 표시해 KST 환산과 카운트다운을 보류합니다.
 학회 공식 명칭과 장소는 원문을 유지하며, 개최 날짜는 현지 기준입니다.
 
 원본 소스 링크와 제작자·관리자·기여자 출처를 화면 상단·하단과
@@ -23,6 +25,39 @@ AoE 기본값(UTC−12), 연도 템플릿, 정각 1초 전·59분의 59초 보�
 기준 원본에는 별도 LICENSE 파일이 없으므로 원본에 임의로 MIT 등 새 라이선스를 부여하지 않습니다.
 출처 표시가 원저작권자의 수정·재배포 허락을 대신하지는 않습니다.
 함께 배포하는 Moment.js와 Moment Timezone의 MIT 라이선스는 `static/vendor/`에 보존합니다.
+
+## AI 학회와 공식 CFP
+
+2026년 9월 11일에 아래 공식 CFP를 직접 확인하여 `_data/ai_conferences.yml`에 추가했습니다.
+공개된 최신 회차를 사용하며, 다음 회차의 미공개 일정은 추정하지 않습니다. 지난 마감일도 기록으로 표시합니다.
+
+| 학회 | 공식 CFP | 추가한 제출 단계 |
+| --- | --- | --- |
+| ICLR 2027 | [CFP](https://iclr.cc/Conferences/2027/CallForPapers) | 초록 등록, 논문 제출 |
+| AISTATS 2027 | [CFP](https://virtual.aistats.org/Conferences/2027/CallForPapers) | 초록 등록, 논문·보충자료 제출 |
+| CVPR 2027 | [CFP](https://cvpr.thecvf.com/Conferences/2027/CallForPapers) | 논문 등록, 논문 제출 |
+| AAAI 2027 | [메인 기술 트랙 CFP](https://aaai.org/conference/aaai/aaai-27/main-technical-track-call/) | 초록 등록, 논문 제출 |
+| NeurIPS 2026 | [CFP](https://neurips.cc/Conferences/2026/CallForPapers) | 초록 등록, 논문·보충자료 제출 |
+| ICML 2026 | [CFP](https://icml.cc/Conferences/2026/CallForPapers) | 초록 등록, 논문 제출 |
+| IJCAI-ECAI 2026 | [메인 트랙 CFP](https://2026.ijcai.org/ijcai-ecai-2026-call-for-papers-main-track/) | 초록 등록, 논문 제출 |
+| ACL 2026 | [CFP](https://2026.aclweb.org/calls/main_conference_papers/) | ARR 제출, 학회 확정(Commitment) |
+| EMNLP 2026 | [CFP](https://2026.emnlp.org/calls/main_conference_papers/) | ARR 제출, 학회 확정(Commitment) |
+| COLT 2026 | [CFP](https://learningtheory.org/colt2026/cfp.html) | 논문 제출 |
+| UAI 2026 | [CFP](https://www.auai.org/uai2026/call_for_papers) | 논문 제출 |
+| WACV 2027 | [CFP](https://wacv.thecvf.com/Conferences/2027/CallForPapers) | 1·2차 신규 논문 등록 및 제출 |
+
+새 학회 12개에 제출·확정 마감 15개를 추가하고, 별도로 필요한 사전 등록 마감도 KST로 표시합니다.
+일반 연구/메인 트랙 기준이며, 특별 트랙·워크숍 등 별도 모집의 마감과 혼동하지 않도록 합니다.
+각 화면 항목에 `cfp`(공식 CFP)와 `checked_on`(확인일)을 표시합니다.
+`deadline_labels`와 `registration_deadline`은 `deadline` 배열의 같은 인덱스에 대응합니다.
+사전 등록일이 지난 경우 본문 마감이 남아 있어도 ‘등록 마감됨’을 표시합니다.
+
+원본의 보안·AI 교차 분야 학회/워크숍 20개에도 AI 태그를 추가했습니다.
+기존 항목 중 [SaTML 2027 CFP](https://satml.org/call-for-papers/)는 직접 확인하여 필수 초록 등록을 추가했습니다.
+[SAIS 2027 공식 발표](https://www.usenix.org/conference/sais27)는 날짜만 공개되어 있어, 원본 데이터는 보존하되 시각·시간대 확인 전 환산을 보류합니다.
+나머지 기존 항목의 마감일은 원본 데이터를 사용하며, 화면에서 ‘원본 데이터’ 출처로 구분합니다.
+새 AI 학회의 CORE 등급은 검증 전이므로 임의로 부여하지 않았습니다. 등급 필터를 선택하면 해당 항목은 제외됩니다.
+하단의 원본 iCal 구독에는 이 사이트에서 추가한 AI 일정이 포함되지 않습니다.
 
 ## 개발 및 배포
 
@@ -40,7 +75,9 @@ python -m http.server 4173 --bind 127.0.0.1 --directory .preview
 사이트 설정의 `baseurl: /sec-deadlines`를 유지해야 CSS·스크립트·출처 안내 경로가 올바르게 연결됩니다.
 
 학회 데이터 갱신 시 `_data/conferences.yml`과 `_config.yml`의 `upstream_revision`, `upstream_updated`를 함께 갱신하세요.
-태그의 `name`·`tag`는 원본 값을 유지하고 한국어 표시만 `name_ko`에서 관리합니다.
+AI 일정은 각 공식 CFP에서 트랙·시각·시간대·사전 등록 요건을 확인한 뒤 `_data/ai_conferences.yml`과 확인일을 갱신하세요.
+기존 보안 학회의 AI 태그·검증 메타데이터를 제외한 원본 필드는 회귀 테스트로 원본 커밋과 비교합니다.
+기존 태그의 `name`·`tag`는 원본 값을 유지하고 한국어 표시는 `name_ko`에서 관리합니다.
 
 로컬 Git의 `origin`은 이 저장소, `upstream`은 원본 저장소를 가리킵니다.
 아래에는 원본 프로젝트의 출처와 데이터 관리 문서를 보존합니다. 아래의 방문자 현지 시간 표시는 원본의 동작 설명이며, 이 한국어 버전은 KST로 고정합니다.

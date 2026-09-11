@@ -22,17 +22,18 @@
       <a href="https://github.com/{{ site.github_username }}/{{ site.github_repo }}">GitHub 저장소 ↗</a>
     </nav>
     <header class="page-header">
-      <p class="eyebrow">SECURITY · PRIVACY · CRYPTOGRAPHY</p>
+      <p class="eyebrow">SECURITY · PRIVACY · CRYPTO · AI</p>
       <h1>{{ site.title }}</h1>
       <p class="intro">{{ site.description }}</p>
       <p class="source-line">원본: <a href="{{ site.upstream_site }}">Security and Privacy Conference Deadlines</a>
         · <a href="{{ site.upstream_url }}">원본 소스 ↗</a></p>
       <div class="timezone-banner">
         <div><strong>대한민국 표준시 · KST (UTC+9)</strong>
-          <p>접속 지역과 관계없이 모든 제출 마감일을 한국 시간으로 표시합니다.</p></div>
+          <p>접속 지역과 관계없이 확인된 제출 마감 시각을 한국 시간으로 표시합니다.</p></div>
         <div class="clock"><span>지금 한국은</span><time id="korea-clock">확인 중…</time></div>
       </div>
       <p class="update-note">원본 데이터 갱신: {{ site.upstream_updated | date: "%Y년 %m월 %d일" }}
+        · 추가 AI 학회 공식 CFP 확인: {{ site.ai_cfp_checked | date: "%Y년 %m월 %d일" }}
         · 학회 개최 일정과 장소는 개최지 기준입니다.</p>
     </header>
     <main>
@@ -59,23 +60,27 @@
           </fieldset>
           {% endfor %}
         </form>
-        <p class="filter-source">분류와 필터 결합 규칙: <a href="{{ site.upstream_url }}/blob/master/_data/filters.yml">원본 필터 정의</a>를 한국어로 번역했습니다.
-          등급은 <a href="https://portal.core.edu.au/conf-ranks/">CORE</a>에 기반한 원본 분류입니다.</p>
+        <p class="filter-source"><a href="{{ site.upstream_url }}/blob/master/_data/filters.yml">원본 필터 정의</a>의 Security(보안)·Privacy(프라이버시)·Crypto(암호)와 결합 규칙을 유지하고 AI(인공지능)를 추가했습니다. 교차 분야는 여러 태그를 함께 표시합니다.
+          등급은 <a href="https://portal.core.edu.au/conf-ranks/">CORE</a>에 기반한 원본 분류입니다. 새로 추가한 AI 학회는 등급 검증 전으로, CORE 등급을 선택하면 제외됩니다.</p>
       </section>
       <noscript><p class="notice">한국 시간 변환과 필터 사용에는 JavaScript가 필요합니다. 원본 시간은 각 항목의 ‘원본 마감일’에서 확인할 수 있습니다.</p></noscript>
       <p id="load-error" class="notice" role="alert" hidden>한국 시간 변환 기능을 불러오지 못했습니다. 페이지를 새로고침해 주세요. 아래 원본 마감일과 공식 학회 링크를 확인할 수 있습니다.</p>
       <section id="deadlines" aria-labelledby="list-heading">
         <div class="section-heading list-heading"><h2 id="list-heading">제출 마감일</h2><p id="result-count" role="status" aria-live="polite"></p></div>
         <p class="list-note">다가오는 마감일 순으로 정렬하며, 지난 마감일도 함께 제공합니다.</p>
+        <p class="ai-source-note">AI 학회는 공개된 최신 회차의 공식 CFP에서 확인한 일정을 추가했습니다. 다음 회차 마감일이 미공개이면 추정하지 않습니다.
+          각 항목에서 공식 CFP와 확인일, 초록·논문 등록 요건을 확인할 수 있습니다. 기존 원본 항목은 별도로 출처를 표시합니다.</p>
         <p id="empty-state" class="notice" hidden>선택한 조건에 맞는 마감일이 없습니다. 필터 선택을 변경하거나 초기화해 주세요.</p>
         <div class="conf-container">
-          {% for conf in site.data.conferences %}
+          {% assign conferences = site.data.conferences | concat: site.data.ai_conferences %}
+          {% for conf in conferences %}
           {% assign range_end = conf.deadline.size | minus: 1 %}
           {% for i in (0..range_end) %}
           {% assign conf_id = conf.name | append: conf.year | append: '-' | append: i | slugify %}
           {% assign prevyear = conf.year | minus: 1 %}
           {% assign deadline = conf.deadline[i] | replace: '%y', conf.year | replace: '%Y', prevyear %}
           <article id="{{ conf_id }}" class="conf" data-year="{{ conf.year }}" data-deadline="{{ conf.deadline[i] | escape }}"
+            data-deadline-status="{{ conf.deadline_status | default: 'confirmed' }}"
             data-timezone="{{ conf.timezone | default: 'Etc/GMT+12' | escape }}" data-tags="{{ conf.tags | join: ' ' | escape }}">
             <div class="conf-info">
               <h3><a href="{{ conf.link | escape }}">{{ conf.name }} {{ conf.year }} <span aria-hidden="true">↗</span></a></h3>
@@ -85,17 +90,34 @@
                 {% if conf.dblp %} · <a href="{{ conf.dblp | escape }}">DBLP</a>{% endif %}</p>
               <div class="tags">
                 {% for group in group_keys %}{% for type in site.data.filters[group] %}
-                {% if conf.tags contains type.tag %}<span>{{ type.name_ko | default: type.name }}</span>{% endif %}
+                {% if conf.tags contains type.tag %}<span data-tag="{{ type.tag }}">{{ type.name_ko | default: type.name }}</span>{% endif %}
                 {% endfor %}{% endfor %}
               </div>
+              <p class="cfp-source">
+                {% if conf.cfp %}<a href="{{ conf.cfp | escape }}">공식 CFP ↗</a> · 확인 {{ conf.checked_on }}
+                {% elsif conf.official_page %}<a href="{{ conf.official_page | escape }}">공식 발표 페이지 ↗</a> · 확인 {{ conf.checked_on }}
+                {% else %}<a href="{{ site.upstream_url }}/blob/{{ site.upstream_revision }}/_data/conferences.yml">원본 데이터</a> · {{ site.upstream_updated }}{% endif %}
+              </p>
             </div>
             <div class="conf-deadline">
-              <p class="deadline-label">제출 마감{% if conf.deadline.size >= 2 %} · {{ i | plus: 1 }}/{{ conf.deadline.size }}차{% endif %}</p>
+              <p class="deadline-label">{% if conf.deadline_labels[i] %}{{ conf.deadline_labels[i] | escape }}{% else %}제출 마감{% if conf.deadline.size >= 2 %} · {{ i | plus: 1 }}/{{ conf.deadline.size }}차{% endif %}{% endif %}</p>
               <p class="timer">한국 시간 변환 중…</p>
               <time class="deadline-time"></time>
+              {% if conf.deadline_status == 'date_only' %}
+              <p class="original-deadline">공식 발표 날짜: {{ conf.announced_deadline }} · 시각·시간대 미공개</p>
+              {% else %}
               <p class="original-deadline">원본 마감일: {{ deadline | escape }}<br>
-                {{ conf.timezone | default: 'AoE (UTC−12)' | escape }}</p>
+                {% if conf.timezone == 'Etc/GMT+12' %}AoE (UTC−12){% else %}{{ conf.timezone | default: 'AoE (UTC−12)' | escape }}{% endif %}</p>
+              {% endif %}
+              {% if conf.registration_deadline[i] %}
+              <div class="registration">
+                <p>{{ conf.registration_label | default: '사전 등록 필수' | escape }} · <span class="registration-status"></span></p>
+                <time class="registration-time" data-deadline="{{ conf.registration_deadline[i] | escape }}"></time>
+                <p class="original-deadline">원본: {{ conf.registration_deadline[i] | escape }} · {% if conf.timezone == 'Etc/GMT+12' %}AoE (UTC−12){% else %}{{ conf.timezone | default: 'AoE (UTC−12)' | escape }}{% endif %}</p>
+              </div>
+              {% endif %}
               {% if conf.comment %}<p class="conf-comment">{{ conf.comment | escape }}</p>{% endif %}
+              {% if conf.source_note %}<p class="conf-comment">{{ conf.source_note | escape }}</p>{% endif %}
             </div>
           </article>
           {% endfor %}
@@ -106,7 +128,7 @@
     <footer>
       <h2>출처 및 저작자 표시</h2>
       <p>이 사이트는 <a href="{{ site.upstream_url }}">sec-deadlines/sec-deadlines.github.io</a>의 학회 데이터와 필터 구조를 기반으로 만든 비공식 한국어 버전입니다.
-        한국어 표기와 KST 변환을 추가했으며, 원본 프로젝트의 공식 번역 또는 공식 운영 사이트는 아닙니다.</p>
+        한국어 표기와 KST 변환, AI 태그 및 공식 CFP에서 확인한 AI 학회 일정을 추가했습니다. 원본 프로젝트나 각 학회가 운영하는 공식 사이트는 아닙니다.</p>
       <p>원본 제작: <a href="https://twitter.com/hiddenmarkov">Bogdan Kulynych</a> · 원본 유지관리:
         <a href="https://clementfung.github.io/">Clement Fung</a>, <a href="https://hcnam.github.io/">Hocheol Nam</a> 및 기여자.<br>
         원본이 기반한 프로젝트: <a href="https://github.com/abhshkdz/ai-deadlines">ai-deadlines</a> (Abhishek Das).</p>
@@ -114,7 +136,7 @@
         <a href="{{ site.baseurl }}/attribution.html">출처·라이선스 안내</a> ·
         <a href="https://github.com/{{ site.github_username }}/{{ site.github_repo }}">한국어 버전 소스 및 수정 제안</a></p>
       <p class="meta">제출 전 학회 공식 사이트에서 마감일과 사전 등록 요건을 확인하세요.
-        원본 캘린더(iCal): <a href="{{ site.upstream_site }}ical/deadlines-all.ical">전체</a> ·
+        원본 캘린더(iCal, 이 사이트의 추가 AI 일정 미포함): <a href="{{ site.upstream_site }}ical/deadlines-all.ical">전체</a> ·
         <a href="{{ site.upstream_site }}ical/deadlines-sec.ical">보안</a> ·
         <a href="{{ site.upstream_site }}ical/deadlines-priv.ical">프라이버시</a> ·
         <a href="{{ site.upstream_site }}ical/deadlines-crypto.ical">암호</a></p>

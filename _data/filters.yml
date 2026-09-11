@@ -8,6 +8,9 @@ filter1:
   - name: Crypto
     name_ko: 암호
     tag: CRYPTO
+  - name: AI
+    name_ko: AI (인공지능)
+    tag: AI
 
 filter2:
   - name: Conferences

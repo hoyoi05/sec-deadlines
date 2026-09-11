@@ -613,7 +613,12 @@
   deadline: ["2027-02-04 23:59"]
   date: June 7–8
   place: Santa Clara, CA, USA
-  tags: [SEC, PRIV, CONF, OTHERS]
+  official_page: https://www.usenix.org/conference/sais27
+  checked_on: "2026-09-11"
+  deadline_status: date_only
+  announced_deadline: "2027-02-04"
+  source_note: 공식 사이트는 날짜만 발표했으며 CFP는 공개 예정입니다. 시각·시간대가 확인되기 전까지 KST 환산과 카운트다운을 표시하지 않습니다.
+  tags: [SEC, PRIV, CONF, OTHERS, AI]
 
 - name: NCA
   description: International Symposium on Network Computing and Applications
@@ -891,7 +896,11 @@
   link: https://satml.org/
   deadline: ["2026-09-29 23:59"]
   place: Reykjavik, Iceland
-  tags: [SEC, PRIV, CONF, OTHERS]
+  cfp: https://satml.org/call-for-papers/
+  checked_on: "2026-09-11"
+  registration_deadline: ["2026-09-22 23:59"]
+  registration_label: 초록 등록 필수
+  tags: [SEC, PRIV, CONF, OTHERS, AI]
 
 - name: NordSec
   year: 2026
@@ -997,7 +1006,7 @@
   comment: Co-located with IEEE ICHI 2026.
   date: June 1
   place: Minneapolis, MN, USA
-  tags: [SEC, PRIV, SHOP, OTHERS]
+  tags: [SEC, PRIV, SHOP, OTHERS, AI]
 
 - name: AIHWS
   description: ACNS Workshop on Artificial Intelligence in Hardware Security
@@ -1007,7 +1016,7 @@
   comment: In conjunction with ACNS 2026
   date: June 25
   place: Stony Brook, New York, USA
-  tags: [SEC, SHOP, OTHERS]
+  tags: [SEC, SHOP, OTHERS, AI]
 
 - name: AIoTS
   description: International Workshop on Artificial Intelligence and IoT Security
@@ -1017,7 +1026,7 @@
   comment: In conjunction with ACNS 2026
   date: June 22
   place: Stony Brook, NY, USA
-  tags: [SEC, SHOP, OTHERS]
+  tags: [SEC, SHOP, OTHERS, AI]
 
 - name: CIMSS
   description: International Workshop on Critical Infrastructure and Maritime Systems Security
@@ -1060,7 +1069,7 @@
   comment: In conjunction with ACNS
   date: June 22-25
   place: Stony Brook University, NY, USA
-  tags: [SEC, SHOP, OTHERS]
+  tags: [SEC, SHOP, OTHERS, AI]
 
 - name: CPSIoTSec
   description: The Joint Workshop on CPS & IoT Security and Privacy
@@ -1080,7 +1089,7 @@
   date: November 15-19, 2026
   comment: Co-located with ACM CCS 2026
   place: The Hague, The Netherlands
-  tags: [SEC, PRIV, SHOP, OTHERS]
+  tags: [SEC, PRIV, SHOP, OTHERS, AI]
 
 - name: EnergySP
   description: ACM SIGEnergy Workshop on Cybersecurity and Privacy of Energy Systems
@@ -1140,7 +1149,7 @@
   comment: In conjunction with ACSAC
   date: December 8
   place: Los Angeles, CA, USA
-  tags: [SEC, SHOP, OTHERS]
+  tags: [SEC, SHOP, OTHERS, AI]
 
 - name: DeFi
   description: Workshop on Decentralized Finance and Security
@@ -1254,7 +1263,7 @@
     - "2025-12-10 23:59"
   date: February 27
   place: San Diego, California, USA
-  tags: [SEC, SHOP, OTHERS]
+  tags: [SEC, SHOP, OTHERS, AI]
 
 - name: USEC
   description: Symposium on Usable Security and Privacy
@@ -1338,7 +1347,7 @@
   comment: Co-located with ESORICS 2026
   date: September 17-18
   place: Rome, Italy
-  tags: [SEC, PRIV, SHOP, OTHERS]
+  tags: [SEC, PRIV, SHOP, OTHERS, AI]
 
 - name: ASHES
   description: Workshop on Attacks and Solutions in Hardware Security
@@ -1421,7 +1430,7 @@
   deadline: ["2026-02-13 23:59"]
   date: "June 2"
   place: Bangalore, India
-  tags: [SEC, PRIV, SHOP, OTHERS]
+  tags: [SEC, PRIV, SHOP, OTHERS, AI]
 
 - name: WACCO
   description: Workshop on Attackers and Cyber-Crime Operations
@@ -1520,7 +1529,7 @@
   comment: Co-located with ACSAC 2026
   date: December 7
   place: Los Angeles, California, USA
-  tags: [SEC, PRIV, SHOP, OTHERS]
+  tags: [SEC, PRIV, SHOP, OTHERS, AI]
 
 - name: TAC
   description: Topics in Applied Cryptography
@@ -1743,7 +1752,7 @@
   timezone: UTC
   date: April 7
   place: Canterbury, UK
-  tags: [SEC, SHOP, OTHERS]
+  tags: [SEC, SHOP, OTHERS, AI]
 
 - name: TDI
   description: International Workshop on Trends in Digital Identity
@@ -1844,7 +1853,7 @@
   comment: Co-located with ARES
   date: August 24-27
   place: Linköping, SE
-  tags: [SEC, PRIV, SHOP, OTHERS]
+  tags: [SEC, PRIV, SHOP, OTHERS, AI]
 
 - name: IWSMA
   description: International Workshop on Security of Mobile Applications
@@ -1864,7 +1873,7 @@
   comment: Co-located with ARES
   date: August 24-27
   place: Linköping, SE
-  tags: [SEC, PRIV, CRYPTO, SHOP, OTHERS]
+  tags: [SEC, PRIV, CRYPTO, SHOP, OTHERS, AI]
 
 - name: ASOD
   description: Workshop on Advances in Secure Software Deployments
@@ -1884,7 +1893,7 @@
   comment: Co-located with ARES
   date: August 24-27
   place: Linköping, SE
-  tags: [SEC, PRIV, SHOP, OTHERS]
+  tags: [SEC, PRIV, SHOP, OTHERS, AI]
 
 - name: CPRA
   description: International Workshop on Cybersecurity and Privacy Risk Assessments
@@ -2044,7 +2053,7 @@
   comment: Co-located with ARES
   date: August 24-27
   place: Linköping, SE
-  tags: [SEC, PRIV, SHOP, OTHERS]
+  tags: [SEC, PRIV, SHOP, OTHERS, AI]
 
 - name: SAFE-ML
   description: International Workshop on Secure, Accountable, and Verifiable Machine Learning
@@ -2054,7 +2063,7 @@
   deadline: ["2026-02-27 23:59"]
   date: May 18 - 22
   place: Daejeon, South Korea
-  tags: [SEC, PRIV, SHOP, OTHERS]
+  tags: [SEC, PRIV, SHOP, OTHERS, AI]
 
 - name: LightSEC
   description: International Workshop on Lightweight Cryptography for Security and Privacy
@@ -2162,7 +2171,7 @@
   deadline: ["2026-07-17 23:59"]
   date: October 9-11, 2026
   place: New York City, USA
-  tags: [SEC, SHOP, OTHERS]
+  tags: [SEC, SHOP, OTHERS, AI]
 
 - name: AIDC
   description: Workshop on Agentic AI in Offensive and Defensive Cyber Operations
@@ -2172,5 +2181,5 @@
   comment: Co-located with ACSAC 2026
   date: December 7
   place: Los Angeles, California
-  tags: [SEC, PRIV, CRYPTO, SHOP, OTHERS]
+  tags: [SEC, PRIV, CRYPTO, SHOP, OTHERS, AI]
 

@@ -6,7 +6,7 @@ const { Liquid } = require('liquidjs');
 const engine = new Liquid();
 engine.registerFilter('slugify', value => String(value).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, ''));
 const site = yaml.load(fs.readFileSync('_config.yml', 'utf8'));
-site.data = Object.fromEntries(['conferences', 'filters'].map(name => [name, yaml.load(fs.readFileSync(`_data/${name}.yml`, 'utf8'))]));
+site.data = Object.fromEntries(['conferences', 'ai_conferences', 'filters'].map(name => [name, yaml.load(fs.readFileSync(`_data/${name}.yml`, 'utf8'))]));
 const out = path.join('.preview', site.baseurl.replace(/^\//, ''));
 (async () => {
   fs.mkdirSync(out, { recursive: true });

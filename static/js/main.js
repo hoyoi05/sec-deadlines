@@ -12,10 +12,12 @@
     .map(input => ({ tag: input.value, name: input.dataset.name, label: input.dataset.label }))]));
   const storageKey = 'sec-deadlines:ko:filters:' + window.location.pathname;
   const cards = [...document.querySelectorAll('.conf')].map(element => {
-    const deadline = core.parseDeadline(element.dataset.deadline, element.dataset.year, element.dataset.timezone);
+    const dateOnly = element.dataset.deadlineStatus === 'date_only';
+    const deadline = core.parseDeadline(element.dataset.deadline, element.dataset.year, element.dataset.timezone, element.dataset.deadlineStatus);
     const time = element.querySelector('.deadline-time');
     time.textContent = core.formatKST(deadline);
     if (deadline) time.dateTime = deadline.clone().tz(core.KST).format();
+    else if (dateOnly) time.textContent = 'KST 환산 대기';
     else if (!/^(TBA|TBD)$/i.test(element.dataset.deadline)) {
       time.textContent = '마감일 확인 필요';
     }
@@ -26,7 +28,13 @@
       comment.title = '원본 안내: ' + comment.textContent;
       comment.textContent = core.localizeComment(comment.textContent);
     }
-    return { element, deadline, tags: element.dataset.tags.split(/\s+/), timer: element.querySelector('.timer'), past: false };
+    const registrationTime = element.querySelector('.registration-time');
+    const registration = registrationTime ? core.parseDeadline(registrationTime.dataset.deadline, element.dataset.year, element.dataset.timezone) : null;
+    if (registrationTime) {
+      registrationTime.textContent = core.formatKST(registration);
+      if (registration) registrationTime.dateTime = registration.clone().tz(core.KST).format();
+    }
+    return { element, deadline, dateOnly, registration, registrationStatus: element.querySelector('.registration-status'), tags: element.dataset.tags.split(/\s+/), timer: element.querySelector('.timer'), past: false };
   });
 
   function selectionFromDOM() {
@@ -73,7 +81,8 @@
     clock.dateTime = moment(now).tz(core.KST).format();
     let changed = false;
     for (const card of cards) {
-      card.timer.textContent = core.countdown(card.deadline, now);
+      card.timer.textContent = card.dateOnly ? '시각·시간대 미공개' : core.countdown(card.deadline, now);
+      if (card.registrationStatus) card.registrationStatus.textContent = !card.registration ? '확인 필요' : card.registration.valueOf() < now ? '등록 마감됨' : '본문 제출 전 등록';
       const past = Boolean(card.deadline && card.deadline.valueOf() < now);
       if (past !== card.past) changed = true;
       card.past = past;

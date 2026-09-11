@@ -9,7 +9,9 @@
   const KST = 'Asia/Seoul';
   const groups = ['domain', 'type', 'rank'];
 
-  function parseDeadline(raw, year, zone = 'Etc/GMT+12') {
+  function parseDeadline(raw, year, zone = 'Etc/GMT+12', status = 'confirmed') {
+    // A published date alone does not establish a timezone or an exact cutoff.
+    if (status === 'date_only') return null;
     if (!raw || /^(TBA|TBD)$/i.test(raw.trim())) return null;
     if (!moment.tz.zone(zone)) return null;
     const expanded = raw.replace(/%y/g, year).replace(/%Y/g, Number(year) - 1);

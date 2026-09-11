@@ -1,0 +1,182 @@
+# AI main/research-track deadlines checked directly against official CFPs.
+# All times below are 23:59 Anywhere on Earth (UTC-12), as stated by each CFP.
+# No dates are extrapolated for editions whose CFP has not been published.
+# Registration arrays correspond to the same index in deadline/deadline_labels.
+# CORE ranks are intentionally absent until independently verified.
+
+- name: ICLR
+  description: International Conference on Learning Representations
+  year: 2027
+  link: https://iclr.cc/Conferences/2027
+  cfp: https://iclr.cc/Conferences/2027/CallForPapers
+  checked_on: "2026-09-11"
+  deadline: ["2026-09-25 23:59"]
+  deadline_labels: ["논문 제출"]
+  registration_deadline: ["2026-09-18 23:59"]
+  registration_label: 초록 등록 필수
+  timezone: Etc/GMT+12
+  date: April 26-30
+  place: San Francisco, CA, USA
+  tags: [AI, CONF]
+
+- name: AISTATS
+  description: International Conference on Artificial Intelligence and Statistics
+  year: 2027
+  link: https://virtual.aistats.org/Conferences/2027
+  cfp: https://virtual.aistats.org/Conferences/2027/CallForPapers
+  checked_on: "2026-09-11"
+  deadline: ["2026-10-06 23:59"]
+  deadline_labels: ["논문·보충자료 제출"]
+  registration_deadline: ["2026-09-29 23:59"]
+  registration_label: 초록 등록 필수
+  timezone: Etc/GMT+12
+  date: May 3-6
+  place: Montréal, Canada
+  tags: [AI, CONF]
+
+- name: CVPR
+  description: IEEE/CVF Conference on Computer Vision and Pattern Recognition
+  year: 2027
+  link: https://cvpr.thecvf.com/Conferences/2027
+  cfp: https://cvpr.thecvf.com/Conferences/2027/CallForPapers
+  checked_on: "2026-09-11"
+  deadline: ["2026-11-16 23:59"]
+  deadline_labels: ["논문 제출"]
+  registration_deadline: ["2026-11-10 23:59"]
+  registration_label: 논문 등록 필수
+  timezone: Etc/GMT+12
+  date: June 20-25
+  place: Seattle, WA, USA
+  tags: [AI, CONF]
+
+- name: AAAI
+  description: AAAI Conference on Artificial Intelligence — Main Technical Track
+  year: 2027
+  link: https://aaai.org/conference/aaai/aaai-27/
+  cfp: https://aaai.org/conference/aaai/aaai-27/main-technical-track-call/
+  checked_on: "2026-09-11"
+  deadline: ["2026-07-28 23:59"]
+  deadline_labels: ["메인 트랙 논문 제출"]
+  registration_deadline: ["2026-07-21 23:59"]
+  registration_label: 초록 등록 필수
+  timezone: Etc/GMT+12
+  date: February 16-23
+  place: Montréal, Canada
+  tags: [AI, CONF]
+  comment: 메인 기술 트랙 기준입니다. 특별 트랙의 마감일은 별도 CFP를 확인하세요.
+
+- name: NeurIPS
+  description: Conference on Neural Information Processing Systems
+  year: 2026
+  link: https://neurips.cc/Conferences/2026
+  cfp: https://neurips.cc/Conferences/2026/CallForPapers
+  checked_on: "2026-09-11"
+  deadline: ["2026-05-06 23:59"]
+  deadline_labels: ["논문·보충자료 제출"]
+  registration_deadline: ["2026-05-04 23:59"]
+  registration_label: 초록 등록 필수
+  timezone: Etc/GMT+12
+  date: December 8-10
+  place: Sydney, Australia
+  tags: [AI, CONF]
+  comment: 개최일은 시드니 본 학술대회 기준입니다. 튜토리얼·워크숍 및 애틀랜타·파리 행사 일정은 공식 사이트를 확인하세요.
+
+- name: ICML
+  description: International Conference on Machine Learning
+  year: 2026
+  link: https://icml.cc/Conferences/2026
+  cfp: https://icml.cc/Conferences/2026/CallForPapers
+  checked_on: "2026-09-11"
+  deadline: ["2026-01-28 23:59"]
+  deadline_labels: ["논문 제출"]
+  registration_deadline: ["2026-01-23 23:59"]
+  registration_label: 초록 등록 필수
+  timezone: Etc/GMT+12
+  date: July 6-11
+  place: Seoul, South Korea
+  tags: [AI, CONF]
+
+- name: IJCAI-ECAI
+  description: International Joint Conference on Artificial Intelligence — Main Track
+  year: 2026
+  link: https://2026.ijcai.org/
+  cfp: https://2026.ijcai.org/ijcai-ecai-2026-call-for-papers-main-track/
+  checked_on: "2026-09-11"
+  deadline: ["2026-01-19 23:59"]
+  deadline_labels: ["메인 트랙 논문 제출"]
+  registration_deadline: ["2026-01-12 23:59"]
+  registration_label: 초록 등록 필수
+  timezone: Etc/GMT+12
+  date: August 15-21
+  place: Bremen, Germany
+  tags: [AI, CONF]
+
+- name: ACL
+  description: Annual Meeting of the Association for Computational Linguistics
+  year: 2026
+  link: https://2026.aclweb.org/
+  cfp: https://2026.aclweb.org/calls/main_conference_papers/
+  checked_on: "2026-09-11"
+  deadline: ["2026-01-05 23:59", "2026-03-14 23:59"]
+  deadline_labels: ["ARR 논문 제출", "학회 확정(Commitment)"]
+  timezone: Etc/GMT+12
+  date: July 2-7
+  place: San Diego, CA, USA
+  tags: [AI, CONF]
+  comment: ARR 심사와 ACL 확정은 서로 다른 단계입니다. 확정 마감은 필요한 ARR 심사를 마친 논문을 대상으로 합니다.
+
+- name: EMNLP
+  description: Conference on Empirical Methods in Natural Language Processing
+  year: 2026
+  link: https://2026.emnlp.org/
+  cfp: https://2026.emnlp.org/calls/main_conference_papers/
+  checked_on: "2026-09-11"
+  deadline: ["2026-05-25 23:59", "2026-08-02 23:59"]
+  deadline_labels: ["ARR 논문 제출", "학회 확정(Commitment)"]
+  timezone: Etc/GMT+12
+  date: October 24-29
+  place: Budapest, Hungary
+  tags: [AI, CONF]
+  comment: ARR 심사와 EMNLP 확정은 서로 다른 단계입니다. 5월 ARR 제출 시 목표 학회로 EMNLP를 선택해야 하며, 확정에는 필요한 ARR 심사가 완료되어야 합니다.
+
+- name: COLT
+  description: Conference on Learning Theory
+  year: 2026
+  link: https://learningtheory.org/colt2026/
+  cfp: https://learningtheory.org/colt2026/cfp.html
+  checked_on: "2026-09-11"
+  deadline: ["2026-02-04 23:59"]
+  deadline_labels: ["논문 제출"]
+  timezone: Etc/GMT+12
+  date: June 29 - July 3
+  place: San Diego, CA, USA
+  tags: [AI, CONF]
+
+- name: UAI
+  description: Conference on Uncertainty in Artificial Intelligence
+  year: 2026
+  link: https://www.auai.org/uai2026/
+  cfp: https://www.auai.org/uai2026/call_for_papers
+  checked_on: "2026-09-11"
+  deadline: ["2026-02-25 23:59"]
+  deadline_labels: ["논문 제출"]
+  timezone: Etc/GMT+12
+  date: August 17-21
+  place: Amsterdam, Netherlands
+  tags: [AI, CONF]
+
+- name: WACV
+  description: IEEE/CVF Winter Conference on Applications of Computer Vision
+  year: 2027
+  link: https://wacv.thecvf.com/Conferences/2027
+  cfp: https://wacv.thecvf.com/Conferences/2027/CallForPapers
+  checked_on: "2026-09-11"
+  deadline: ["2026-06-26 23:59", "2026-08-28 23:59"]
+  deadline_labels: ["논문 제출 · 1차", "신규 논문 제출 · 2차"]
+  registration_deadline: ["2026-06-19 23:59", "2026-08-21 23:59"]
+  registration_label: 신규 논문 등록 필수
+  timezone: Etc/GMT+12
+  date: January 4-8
+  place: Buena Vista, FL, USA
+  tags: [AI, CONF]
+  comment: 1·2차 신규 논문 마감입니다. 1차 논문의 반박·수정 제출 절차는 공식 CFP에서 별도로 확인하세요.
