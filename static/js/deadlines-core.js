@@ -46,6 +46,13 @@
     return groups.every(group => !selected[group]?.length || selected[group].some(tag => tags.includes(tag)));
   }
 
+  function matchesSearch(name, description, query) {
+    const normalize = value => String(value || '').normalize('NFKC').toLowerCase().trim();
+    const text = normalize(`${name || ''} ${description || ''}`);
+    const words = normalize(query).split(/\s+/).filter(Boolean);
+    return words.every(word => text.includes(word));
+  }
+
   function compareDeadlines(a, b, now = Date.now()) {
     if (!a) return b ? 1 : 0;
     if (!b) return -1;
@@ -57,7 +64,8 @@
 
   function readSelection(search, definitions) {
     const params = new URLSearchParams(search);
-    if (!groups.some(group => params.has(group))) return null;
+    // A shared search-only link must not inherit unrelated saved filters.
+    if (!params.has('q') && !groups.some(group => params.has(group))) return null;
     return Object.fromEntries(groups.map(group => {
       const names = (params.get(group) || '').split(',');
       const selected = definitions[group].filter(item => names.some(name => [item.name, item.label, item.tag].includes(name)));
@@ -95,5 +103,5 @@
     return localizeDate(source);
   }
 
-  return { KST, groups, parseDeadline, formatKST, countdown, matchesFilters, compareDeadlines, readSelection, localizeDate, localizeComment };
+  return { KST, groups, parseDeadline, formatKST, countdown, matchesFilters, matchesSearch, compareDeadlines, readSelection, localizeDate, localizeComment };
 });

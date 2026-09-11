@@ -32,6 +32,14 @@ h2, h3, p { margin: 0; }
 .filters { padding: 23px 26px 17px; background: #fff; border: 1px solid var(--line); border-radius: 10px; }
 .section-heading { display: flex; justify-content: space-between; align-items: center; gap: 16px; }
 .section-heading h2 { font-size: 17px; }
+.conference-search { margin: 20px 0 16px; }
+.conference-search > label { display: block; margin-bottom: 7px; font-size: 13px; font-weight: 700; cursor: text; }
+.search-controls { display: flex; align-items: stretch; gap: 10px; }
+.search-controls input { flex: 1; min-width: 0; width: 100%; padding: 10px 12px; border: 1px solid #b3c6c4; border-radius: 7px; color: var(--ink); background: #fff; cursor: text; font-size: 16px; }
+.search-controls input::placeholder { color: var(--muted); }
+.search-controls button { flex-shrink: 0; }
+.search-controls button:disabled { color: var(--muted); opacity: .6; }
+#search-help { margin-top: 7px; font-size: 12px; color: var(--muted); }
 #filter-help { font-size: 12px; color: var(--muted); margin: 8px 0 20px; max-width: 780px; }
 fieldset { display: block; border: 0; margin: 0; padding: 12px 0 12px 120px; min-width: 0; border-top: 1px solid #edf1f1; }
 legend { float: left; width: 120px; margin-left: -120px; padding: 5px 0; font-size: 13px; font-weight: 700; }
@@ -92,6 +100,8 @@ footer p { margin-bottom: 10px; }
   .clock span { display: inline; margin-right: 8px; }
   .clock time { display: inline; }
   .filters { padding: 17px; }
+  .search-controls { flex-wrap: wrap; }
+  .search-controls input { flex-basis: 100%; }
   fieldset { padding: 12px 0; }
   legend { float: none; width: auto; margin: 0; padding-top: 10px; }
   .filter-option { padding: 5px 9px; }

@@ -48,8 +48,23 @@ test('original, Korean and tag-based filter URLs restore only valid group member
   assert.deepEqual(core.readSelection('?type=Security&rank=bogus', definitions), { domain: [], type: [], rank: [] });
   assert.deepEqual(core.readSelection('?domain=&type=&rank=', definitions), { domain: [], type: [], rank: [] });
   assert.equal(core.readSelection('?unrelated=1', definitions), null);
+  assert.deepEqual(core.readSelection('?q=NeurIPS', definitions), { domain: [], type: [], rank: [] });
+  assert.deepEqual(core.readSelection('?q=digital+forensics&type=Workshops', definitions), { domain: [], type: ['SHOP'], rank: [] });
   assert.deepEqual(core.readSelection('?domain=AI,Security&type=Conferences', definitions), { domain: ['SEC', 'AI'], type: ['CONF'], rank: [] });
   assert.deepEqual(core.readSelection('?domain=AI%20(%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5)', definitions), { domain: ['AI'], type: [], rank: [] });
+});
+
+test('conference search matches names and descriptions with case and Unicode normalization', () => {
+  assert.equal(core.matchesSearch('NeurIPS', 'Neural Information Processing Systems', '  nEuRiPs  '), true);
+  assert.equal(core.matchesSearch('NeurIPS', 'Neural Information Processing Systems', 'ＮｅｕｒＩＰＳ'), true);
+  assert.equal(core.matchesSearch('DFRWS USA', 'Digital Forensics Research Conference', 'digital\tforensics'), true);
+  assert.equal(core.matchesSearch('DFRWS USA', 'Digital Forensics Research Conference', 'usa forensics'), true);
+  assert.equal(core.matchesSearch('DFRWS USA', 'Digital Forensics Research Conference', 'usa privacy'), false);
+  assert.equal(core.matchesSearch('학회', '디지털포렌식 연구', '디지털포렌식'.normalize('NFD')), true);
+  assert.equal(core.matchesSearch('S&P (Oakland)', 'IEEE Symposium on Security and Privacy', 's&p (oakland)'), true);
+  assert.equal(core.matchesSearch('NeurIPS', undefined, '   '), true);
+  assert.equal(core.matchesSearch('NeurIPS', undefined, '.*'), false);
+  assert.equal(core.matchesSearch('NeurIPS', undefined, '<script>'), false);
 });
 test('countdown boundary, ordering and unknown deadlines', () => {
   const now = Date.parse('2026-09-11T00:00:00Z');

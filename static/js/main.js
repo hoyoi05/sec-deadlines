@@ -6,6 +6,9 @@
     return;
   }
   const core = window.Deadlines;
+  const search = document.getElementById('conference-search');
+  const clearSearch = document.getElementById('clear-search');
+  let searchURLTimer;
   const checkboxes = [...document.querySelectorAll('.filter-checkbox')];
   const definitions = Object.fromEntries(core.groups.map(group => [group, checkboxes
     .filter(input => input.dataset.group === group)
@@ -34,7 +37,8 @@
       registrationTime.textContent = core.formatKST(registration);
       if (registration) registrationTime.dateTime = registration.clone().tz(core.KST).format();
     }
-    return { element, deadline, dateOnly, registration, registrationStatus: element.querySelector('.registration-status'), tags: element.dataset.tags.split(/\s+/), timer: element.querySelector('.timer'), past: false };
+    return { element, deadline, dateOnly, registration, registrationStatus: element.querySelector('.registration-status'), tags: element.dataset.tags.split(/\s+/), timer: element.querySelector('.timer'), past: false,
+      name: element.dataset.name, description: element.querySelector('.conf-description').textContent };
   });
 
   function selectionFromDOM() {
@@ -46,7 +50,11 @@
     catch (_) { /* Filtering still works with browser storage disabled. */ }
   }
   function updateURL() {
+    clearTimeout(searchURLTimer);
     const url = new URL(window.location.href);
+    const query = search.value.trim();
+    if (query) url.searchParams.set('q', query);
+    else url.searchParams.delete('q');
     for (const group of core.groups) {
       const names = checkboxes.filter(input => input.checked && input.dataset.group === group).map(input => input.dataset.name);
       if (names.length) url.searchParams.set(group, names.join(','));
@@ -59,7 +67,7 @@
     let visible = 0;
     let upcoming = 0;
     for (const card of cards) {
-      card.element.hidden = !core.matchesFilters(card.tags, selected);
+      card.element.hidden = !core.matchesFilters(card.tags, selected) || !core.matchesSearch(card.name, card.description, search.value);
       if (!card.element.hidden) {
         visible++;
         if (card.deadline && !card.past) upcoming++;
@@ -67,6 +75,7 @@
     }
     document.getElementById('result-count').textContent = visible + '개 마감일 · 예정 ' + upcoming + '개';
     document.getElementById('empty-state').hidden = visible !== 0;
+    clearSearch.disabled = !search.value;
   }
   function reorder(now) {
     cards.sort((a, b) => core.compareDeadlines(a.deadline, b.deadline, now));
@@ -95,6 +104,7 @@
   }
 
   const urlSelection = core.readSelection(window.location.search, definitions);
+  search.value = (new URLSearchParams(window.location.search).get('q') || '').slice(0, search.maxLength);
   let initialTags = [];
   if (urlSelection) initialTags = Object.values(urlSelection).flat();
   else {
@@ -107,6 +117,20 @@
   for (const fieldset of document.querySelectorAll('#filter-form fieldset')) fieldset.disabled = false;
   const reset = document.getElementById('reset-filters');
   reset.disabled = false;
+  search.disabled = false;
+  function searchChanged() {
+    applyFilters();
+    clearTimeout(searchURLTimer);
+    searchURLTimer = setTimeout(updateURL, 250);
+  }
+  search.addEventListener('input', event => { if (!event.isComposing) searchChanged(); });
+  search.addEventListener('compositionend', searchChanged);
+  clearSearch.addEventListener('click', () => {
+    search.value = '';
+    applyFilters();
+    updateURL();
+    search.focus();
+  });
   document.getElementById('filter-form').addEventListener('submit', event => event.preventDefault());
   document.getElementById('filter-form').addEventListener('change', () => {
     saveSelection();
@@ -114,6 +138,7 @@
     updateURL();
   });
   reset.addEventListener('click', () => {
+    search.value = '';
     for (const input of checkboxes) input.checked = false;
     saveSelection();
     applyFilters();
