@@ -1,111 +1,111 @@
-checked_at: '2026-09-11T07:55:31.437Z'
-checked_at_kst: 2026-09-11 16:55:31 KST
+checked_at: '2026-09-11T07:56:31.486Z'
+checked_at_kst: 2026-09-11 16:56:31 KST
 upstream:
   status: unchanged
   revision: 75dfb2da5ad38d312fadce2c046f196dac7d6d3a
-  last_success: '2026-09-11T07:55:31.437Z'
+  last_success: '2026-09-11T07:56:31.486Z'
   changed_entries: 0
 changed_count: 0
-error_count: 5
+error_count: 4
 sources:
   - name: SAIS 2027
     url: https://www.usenix.org/conference/sais27
     kind: announcement
-    status: unchanged
+    status: error
+    error: HTTP 403
     last_success: '2026-09-11T07:55:31.437Z'
-    content_hash: 4f1ca5159e1cfe416fd436a904ac7b0321b1cd9263213b5ceb62c0a68083370f
     last_success_kst: 2026-09-11 16:55:31 KST
   - name: SaTML 2027
     url: https://satml.org/call-for-papers/
     kind: cfp
     status: unchanged
-    last_success: '2026-09-11T07:55:31.437Z'
+    last_success: '2026-09-11T07:56:31.486Z'
     content_hash: 170c1619cb034023c9706a38ecd81b09f383afc56bd0a458a0a2bc8208b42e33
-    last_success_kst: 2026-09-11 16:55:31 KST
+    last_success_kst: 2026-09-11 16:56:31 KST
   - name: ICLR 2027
     url: https://iclr.cc/Conferences/2027/CallForPapers
     kind: cfp
     status: unchanged
-    last_success: '2026-09-11T07:55:31.437Z'
+    last_success: '2026-09-11T07:56:31.486Z'
     content_hash: cf606ef7b7c9a1b5c34263c75e731de69713f33e1cee64c160bf1f730d73deeb
-    last_success_kst: 2026-09-11 16:55:31 KST
+    last_success_kst: 2026-09-11 16:56:31 KST
   - name: AISTATS 2027
     url: https://virtual.aistats.org/Conferences/2027/CallForPapers
     kind: cfp
     status: unchanged
-    last_success: '2026-09-11T07:55:31.437Z'
+    last_success: '2026-09-11T07:56:31.486Z'
     content_hash: 87f0ab648b7437f0fd79e6f7508ec289425577062a77ace4ed0f4573ad430022
-    last_success_kst: 2026-09-11 16:55:31 KST
+    last_success_kst: 2026-09-11 16:56:31 KST
   - name: CVPR 2027
     url: https://cvpr.thecvf.com/Conferences/2027/CallForPapers
     kind: cfp
     status: unchanged
-    last_success: '2026-09-11T07:55:31.437Z'
+    last_success: '2026-09-11T07:56:31.486Z'
     content_hash: 23cb124685b7890f589c777d34bc38314a7e7c8fcfc1e75c0156858a80971fce
-    last_success_kst: 2026-09-11 16:55:31 KST
+    last_success_kst: 2026-09-11 16:56:31 KST
   - name: AAAI 2027
     url: https://aaai.org/conference/aaai/aaai-27/main-technical-track-call/
     kind: cfp
     status: unchanged
-    last_success: '2026-09-11T07:55:31.437Z'
+    last_success: '2026-09-11T07:56:31.486Z'
     content_hash: ba64514f1cb8636015689aff89b7a75e7c96694373b02121334f960272a8ab2c
-    last_success_kst: 2026-09-11 16:55:31 KST
+    last_success_kst: 2026-09-11 16:56:31 KST
   - name: NeurIPS 2026
     url: https://neurips.cc/Conferences/2026/CallForPapers
     kind: cfp
     status: unchanged
-    last_success: '2026-09-11T07:55:31.437Z'
+    last_success: '2026-09-11T07:56:31.486Z'
     content_hash: 14d162b13a4ed8cb6c2462cd0d8823df13a33c15719b83bc06e986e64ec7ff00
-    last_success_kst: 2026-09-11 16:55:31 KST
+    last_success_kst: 2026-09-11 16:56:31 KST
   - name: ICML 2026
     url: https://icml.cc/Conferences/2026/CallForPapers
     kind: cfp
     status: unchanged
-    last_success: '2026-09-11T07:55:31.437Z'
+    last_success: '2026-09-11T07:56:31.486Z'
     content_hash: 51055e91dfbe80b18e06b9be55fc88f724391d93448813e170373d40069b0f7b
-    last_success_kst: 2026-09-11 16:55:31 KST
+    last_success_kst: 2026-09-11 16:56:31 KST
   - name: IJCAI-ECAI 2026
     url: https://2026.ijcai.org/ijcai-ecai-2026-call-for-papers-main-track/
     kind: cfp
     status: unchanged
-    last_success: '2026-09-11T07:55:31.437Z'
+    last_success: '2026-09-11T07:56:31.486Z'
     content_hash: 11665dfc18399d96051527323d41fcd56f5984ae11b8f7a876a7aca8eac25d11
-    last_success_kst: 2026-09-11 16:55:31 KST
+    last_success_kst: 2026-09-11 16:56:31 KST
   - name: ACL 2026
     url: https://2026.aclweb.org/calls/main_conference_papers/
     kind: cfp
     status: unchanged
-    last_success: '2026-09-11T07:55:31.437Z'
+    last_success: '2026-09-11T07:56:31.486Z'
     content_hash: 99d8139d956677aecdbbbde3f9d686eca0a90b97c4ec668be5769dcd0ba56d9b
-    last_success_kst: 2026-09-11 16:55:31 KST
+    last_success_kst: 2026-09-11 16:56:31 KST
   - name: EMNLP 2026
     url: https://2026.emnlp.org/calls/main_conference_papers/
     kind: cfp
     status: unchanged
-    last_success: '2026-09-11T07:55:31.437Z'
+    last_success: '2026-09-11T07:56:31.486Z'
     content_hash: 309f05f7c62d01cf44b0980cfcbb88c0958a0930d2791dec056c47240f873953
-    last_success_kst: 2026-09-11 16:55:31 KST
+    last_success_kst: 2026-09-11 16:56:31 KST
   - name: COLT 2026
     url: https://learningtheory.org/colt2026/cfp.html
     kind: cfp
     status: unchanged
-    last_success: '2026-09-11T07:55:31.437Z'
+    last_success: '2026-09-11T07:56:31.486Z'
     content_hash: 8ff1399b542765305c7887563daaa8b5d3c5ec03e628f086bdefb27509259b55
-    last_success_kst: 2026-09-11 16:55:31 KST
+    last_success_kst: 2026-09-11 16:56:31 KST
   - name: UAI 2026
     url: https://www.auai.org/uai2026/call_for_papers
     kind: cfp
     status: unchanged
-    last_success: '2026-09-11T07:55:31.437Z'
+    last_success: '2026-09-11T07:56:31.486Z'
     content_hash: 10de515815b4ff806e5f580b8f4c0727ad94c309162c7666fe7949f56974c856
-    last_success_kst: 2026-09-11 16:55:31 KST
+    last_success_kst: 2026-09-11 16:56:31 KST
   - name: WACV 2027
     url: https://wacv.thecvf.com/Conferences/2027/CallForPapers
     kind: cfp
     status: unchanged
-    last_success: '2026-09-11T07:55:31.437Z'
+    last_success: '2026-09-11T07:56:31.486Z'
     content_hash: a4e516bf40445ae48bfb528a45202de46cfe3814493d60819a9e82cd3d5e0a55
-    last_success_kst: 2026-09-11 16:55:31 KST
+    last_success_kst: 2026-09-11 16:56:31 KST
   - name: DFC Europe 2027
     url: https://dfrws.org/call-for-papers-dfc-europe-2027/
     kind: cfp
@@ -114,10 +114,10 @@ sources:
   - name: DFRWS USA 2026
     url: https://dfrws.org/call-for-papers-is-open-for-dfrws-usa-2026/
     kind: cfp
-    status: baseline
-    last_success: '2026-09-11T07:55:31.437Z'
+    status: unchanged
+    last_success: '2026-09-11T07:56:31.486Z'
     content_hash: 2256990a0b9aedad3855ca7faee68aa3fad7ecdbe870dd9347aea458145f4fe0
-    last_success_kst: 2026-09-11 16:55:31 KST
+    last_success_kst: 2026-09-11 16:56:31 KST
   - name: DFRWS APAC 2026
     url: https://dfrws.org/conferences/dfrws-apac-2026/
     kind: cfp
@@ -127,16 +127,16 @@ sources:
     url: https://www.ifip119.org/Conferences/WG11-9-CFP-2027.pdf
     kind: cfp
     status: unchanged
-    last_success: '2026-09-11T07:55:31.437Z'
+    last_success: '2026-09-11T07:56:31.486Z'
     content_hash: b3b57dd82fca2a0c461f515915983eadb1b0926aa76f346cb92be743289a61dd
-    last_success_kst: 2026-09-11 16:55:31 KST
+    last_success_kst: 2026-09-11 16:56:31 KST
   - name: ICDF2C 2026
     url: https://icdf2c.eai-conferences.org/2026/call-for-papers/
     kind: cfp
     status: unchanged
-    last_success: '2026-09-11T07:55:31.437Z'
+    last_success: '2026-09-11T07:56:31.486Z'
     content_hash: 984eb64f7bb8c95cac8a512b92b7a43ad97789df75c838087ce4742fafd9374d
-    last_success_kst: 2026-09-11 16:55:31 KST
+    last_success_kst: 2026-09-11 16:56:31 KST
   - name: DFDS 2027
     url: https://dfrws.org/conferences/dfds-2027/
     kind: cfp
@@ -146,165 +146,167 @@ sources:
     url: https://www.isdfs.org/2027/call-for-papers/
     kind: cfp
     status: unchanged
-    last_success: '2026-09-11T07:55:31.437Z'
+    last_success: '2026-09-11T07:56:31.486Z'
     content_hash: 1d082ddc15df8046caf380f5cac9a4e94bef862de5fe8d8e7742df752bf3c2ea
-    last_success_kst: 2026-09-11 16:55:31 KST
+    last_success_kst: 2026-09-11 16:56:31 KST
   - name: IMF 2026
     url: https://www.imf-conference.org/cfp.html
     kind: cfp
     status: unchanged
-    last_success: '2026-09-11T07:55:31.437Z'
+    last_success: '2026-09-11T07:56:31.486Z'
     content_hash: 2e443a8522b9d76ca12ee8db0c0af916cb9c5cce927cee9563fd4997fa48c703
-    last_success_kst: 2026-09-11 16:55:31 KST
+    last_success_kst: 2026-09-11 16:56:31 KST
   - name: WSDF 2026
     url: https://www.ares-conference.eu/wsdf
     kind: cfp
-    status: baseline
-    last_success: '2026-09-11T07:55:31.437Z'
+    status: unchanged
+    last_success: '2026-09-11T07:56:31.486Z'
     content_hash: 812c5d1cedb2349280a078b0e25200ff86cfb0576770724949b57366df387d7c
-    last_success_kst: 2026-09-11 16:55:31 KST
+    last_success_kst: 2026-09-11 16:56:31 KST
   - name: WIFS 2026
     url: https://wifs2026.utt.fr/call-for-papers
     kind: cfp
     status: unchanged
-    last_success: '2026-09-11T07:55:31.437Z'
+    last_success: '2026-09-11T07:56:31.486Z'
     content_hash: 3160dcd746481a10ab337cac23f915e47a7d389434c037b1118b0cf088aae88d
-    last_success_kst: 2026-09-11 16:55:31 KST
+    last_success_kst: 2026-09-11 16:56:31 KST
   - name: ICLR 공식 홈페이지
     url: https://iclr.cc/
     kind: homepage
     status: unchanged
-    last_success: '2026-09-11T07:55:31.437Z'
+    last_success: '2026-09-11T07:56:31.486Z'
     content_hash: 7e7a8d0322330024c36c499cf8285bfe153789287862b4ac031519c986c57082
-    last_success_kst: 2026-09-11 16:55:31 KST
+    last_success_kst: 2026-09-11 16:56:31 KST
   - name: AISTATS 공식 홈페이지
     url: https://aistats.org/
     kind: homepage
     status: unchanged
-    last_success: '2026-09-11T07:55:31.437Z'
+    last_success: '2026-09-11T07:56:31.486Z'
     content_hash: d94e732ad66e056e79df2f05672520ed9dea47b6d742fd19540ec9b4624095cc
-    last_success_kst: 2026-09-11 16:55:31 KST
+    last_success_kst: 2026-09-11 16:56:31 KST
   - name: CVPR 공식 홈페이지
     url: https://cvpr.thecvf.com/
     kind: homepage
     status: unchanged
-    last_success: '2026-09-11T07:55:31.437Z'
+    last_success: '2026-09-11T07:56:31.486Z'
     content_hash: 710548d359ecfb675eb666e72a3ae51e81f2efe9d0ac4a5f169c338acf67cf71
-    last_success_kst: 2026-09-11 16:55:31 KST
+    last_success_kst: 2026-09-11 16:56:31 KST
   - name: AAAI 공식 홈페이지
     url: https://aaai.org/conference/aaai/
     kind: homepage
     status: unchanged
-    last_success: '2026-09-11T07:55:31.437Z'
+    last_success: '2026-09-11T07:56:31.486Z'
     content_hash: 0a9237f8e5a4db4a950dd5fb1351db5dc6bb7bf65502e808e4f307566851ef7e
-    last_success_kst: 2026-09-11 16:55:31 KST
+    last_success_kst: 2026-09-11 16:56:31 KST
   - name: NeurIPS 공식 홈페이지
     url: https://neurips.cc/
     kind: homepage
     status: unchanged
-    last_success: '2026-09-11T07:55:31.437Z'
+    last_success: '2026-09-11T07:56:31.486Z'
     content_hash: f499c3a8ccc056d94625d160967b3fd848c9c036851c2e0dac502f63956e3b84
-    last_success_kst: 2026-09-11 16:55:31 KST
+    last_success_kst: 2026-09-11 16:56:31 KST
   - name: ICML 공식 홈페이지
     url: https://icml.cc/
     kind: homepage
     status: unchanged
-    last_success: '2026-09-11T07:55:31.437Z'
+    last_success: '2026-09-11T07:56:31.486Z'
     content_hash: b144eeabcda6b11feb91143466bf46d11b30f64f5103f504cc1d97e8e1b0ce7f
-    last_success_kst: 2026-09-11 16:55:31 KST
+    last_success_kst: 2026-09-11 16:56:31 KST
   - name: IJCAI 공식 홈페이지
     url: https://www.ijcai.org/
     kind: homepage
     status: unchanged
-    last_success: '2026-09-11T07:55:31.437Z'
+    last_success: '2026-09-11T07:56:31.486Z'
     content_hash: f4196fb852ce63f54d45e6bbedff466bdd7632fb2ddb602f40eeaccb74c8ab8a
-    last_success_kst: 2026-09-11 16:55:31 KST
+    last_success_kst: 2026-09-11 16:56:31 KST
   - name: ACL 공식 행사 목록
     url: https://www.aclweb.org/portal/events
     kind: homepage
     status: unchanged
-    last_success: '2026-09-11T07:55:31.437Z'
+    last_success: '2026-09-11T07:56:31.486Z'
     content_hash: 07ff110d75b730c64565059f1012bf99acc106b0711c875b65b0803ef5d89d18
-    last_success_kst: 2026-09-11 16:55:31 KST
+    last_success_kst: 2026-09-11 16:56:31 KST
   - name: COLT 공식 행사 목록
     url: https://learningtheory.org/
     kind: homepage
     status: unchanged
-    last_success: '2026-09-11T07:55:31.437Z'
+    last_success: '2026-09-11T07:56:31.486Z'
     content_hash: 7eaaa6f3f8002bdf72727ec1f97dfdae6609d921906f4881a1b62ab9d91d5e27
-    last_success_kst: 2026-09-11 16:55:31 KST
+    last_success_kst: 2026-09-11 16:56:31 KST
   - name: UAI 공식 홈페이지
     url: https://www.auai.org/
     kind: homepage
     status: unchanged
-    last_success: '2026-09-11T07:55:31.437Z'
+    last_success: '2026-09-11T07:56:31.486Z'
     content_hash: 76b305122e4126ee6d2df8f51033158681ad29759d9842f6ed2e441d7e82dc93
-    last_success_kst: 2026-09-11 16:55:31 KST
+    last_success_kst: 2026-09-11 16:56:31 KST
   - name: WACV 공식 홈페이지
     url: https://wacv.thecvf.com/
     kind: homepage
     status: unchanged
-    last_success: '2026-09-11T07:55:31.437Z'
+    last_success: '2026-09-11T07:56:31.486Z'
     content_hash: 947105321fe234e68b6c56fda67fbb09c1cfae4833e59bb0bfce40a5e5d2b416
-    last_success_kst: 2026-09-11 16:55:31 KST
+    last_success_kst: 2026-09-11 16:56:31 KST
   - name: SaTML 공식 홈페이지
     url: https://satml.org/
     kind: homepage
     status: unchanged
-    last_success: '2026-09-11T07:55:31.437Z'
+    last_success: '2026-09-11T07:56:31.486Z'
     content_hash: 458732c8185c6e2e02b24c6629957564be36327e4b80d9bfc9f48a24a1f94c68
-    last_success_kst: 2026-09-11 16:55:31 KST
+    last_success_kst: 2026-09-11 16:56:31 KST
   - name: DFRWS / DFC 공식 홈페이지
     url: https://dfrws.org/
     kind: homepage
-    status: error
-    error: HTTP 403
+    status: baseline
+    last_success: '2026-09-11T07:56:31.486Z'
+    content_hash: d0e0a573282ee3c97c4a9b10ec2885c4b9499d8ddb9438e835a6760f9996faa2
+    last_success_kst: 2026-09-11 16:56:31 KST
   - name: DFC Europe 2027 공식 학회 페이지
     url: https://dfrws.org/conferences/dfceurope2027/
     kind: homepage
-    status: error
-    error: HTTP 403
-    last_success: '2026-09-11T07:53:42.259Z'
-    last_success_kst: 2026-09-11 16:53:42 KST
+    status: unchanged
+    last_success: '2026-09-11T07:56:31.486Z'
+    content_hash: 4910137fcb11a63f78bebccf016cf6654a83a2a253ff7b06436353e1f570169d
+    last_success_kst: 2026-09-11 16:56:31 KST
   - name: DFRWS USA 2026 공식 학회 페이지
     url: https://dfrws.org/conferences/dfrws-usa-2026/
     kind: homepage
-    status: baseline
-    last_success: '2026-09-11T07:55:31.437Z'
+    status: unchanged
+    last_success: '2026-09-11T07:56:31.486Z'
     content_hash: 8bc701c1ed12be69fdb87568db633768218b4eb8db64378ce3e517cfb137f2ad
-    last_success_kst: 2026-09-11 16:55:31 KST
+    last_success_kst: 2026-09-11 16:56:31 KST
   - name: IFIP WG 11.9 공식 학회 목록
     url: https://www.ifip119.org/Conferences/
     kind: homepage
     status: unchanged
-    last_success: '2026-09-11T07:55:31.437Z'
+    last_success: '2026-09-11T07:56:31.486Z'
     content_hash: 6416bc19860bed1d1b66f5842a88e9f48908acdae387f35b1d6a5d895aad28e7
-    last_success_kst: 2026-09-11 16:55:31 KST
+    last_success_kst: 2026-09-11 16:56:31 KST
   - name: ICDF2C 공식 홈페이지
     url: https://icdf2c.eai-conferences.org/
     kind: homepage
     status: unchanged
-    last_success: '2026-09-11T07:55:31.437Z'
+    last_success: '2026-09-11T07:56:31.486Z'
     content_hash: 4ca970e9a52b50a82f41188cc1ae8c8b05ea37e0a5e8f97ca8e832f29a2e89e0
-    last_success_kst: 2026-09-11 16:55:31 KST
+    last_success_kst: 2026-09-11 16:56:31 KST
   - name: ISDFS 공식 홈페이지
     url: https://www.isdfs.org/
     kind: homepage
     status: unchanged
-    last_success: '2026-09-11T07:55:31.437Z'
+    last_success: '2026-09-11T07:56:31.486Z'
     content_hash: 2d67d47308433faf334d4e3efb61cec5a0c1f030ba79221e31b31c74e2a10f6d
-    last_success_kst: 2026-09-11 16:55:31 KST
+    last_success_kst: 2026-09-11 16:56:31 KST
   - name: ISDFS 2027 공식 일정
     url: https://www.isdfs.org/2027/important-dates/
     kind: announcement
     status: unchanged
-    last_success: '2026-09-11T07:55:31.437Z'
+    last_success: '2026-09-11T07:56:31.486Z'
     content_hash: b603e4f2fabf2c78857c5734fb2023378b17c6baee3a66e38cc261f87f6011f7
-    last_success_kst: 2026-09-11 16:55:31 KST
+    last_success_kst: 2026-09-11 16:56:31 KST
   - name: WIFS 2026 공식 일정
     url: https://wifs2026.utt.fr/important-dates
     kind: announcement
     status: unchanged
-    last_success: '2026-09-11T07:55:31.437Z'
+    last_success: '2026-09-11T07:56:31.486Z'
     content_hash: 1176e2f69d2faa1723ca6dbe8269b83bbcd1f0ebaf321db852f8337887d5cf38
-    last_success_kst: 2026-09-11 16:55:31 KST
+    last_success_kst: 2026-09-11 16:56:31 KST

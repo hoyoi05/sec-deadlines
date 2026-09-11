@@ -158,5 +158,9 @@
   "https://dfrws.org/conferences/dfrws-usa-2026/": {
     "hash": "8bc701c1ed12be69fdb87568db633768218b4eb8db64378ce3e517cfb137f2ad",
     "recorded_at": "2026-09-11T07:55:31.437Z"
+  },
+  "https://dfrws.org/": {
+    "hash": "d0e0a573282ee3c97c4a9b10ec2885c4b9499d8ddb9438e835a6760f9996faa2",
+    "recorded_at": "2026-09-11T07:56:31.486Z"
   }
 }
