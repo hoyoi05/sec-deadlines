@@ -5,16 +5,45 @@
 
 - 저장소: [hoyoi05/sec-deadlines](https://github.com/hoyoi05/sec-deadlines)
 - 원본 소스: [sec-deadlines/sec-deadlines.github.io](https://github.com/sec-deadlines/sec-deadlines.github.io)
-- 표시 언어: 한국어 (`ko-KR`, 구현 예정)
-- 표시 시간대: 대한민국 표준시 (`Asia/Seoul`, KST, UTC+9, 구현 예정)
+- 표시 언어: 한국어 (`ko-KR`)
+- 표시 시간대: 대한민국 표준시 (`Asia/Seoul`, KST, UTC+9)
 - 배포 대상: GitHub Pages
-- 배포 예정 주소: `https://hoyoi05.github.io/sec-deadlines/`
+- 사이트 주소: [hoyoi05.github.io/sec-deadlines](https://hoyoi05.github.io/sec-deadlines/)
 
-현재는 원본 저장소를 포크한 초기 상태입니다. 한국어 화면, KST 고정 표시, GitHub Pages 배포는 이후 구현할 예정입니다.
-시간대 변환 시 원본 마감일과 시간대 정보를 유지하고, 표시 시점에 `Asia/Seoul`로 변환합니다.
+원본의 3개 필터 그룹과 12개 태그를 유지하며, 한국어로 필터링할 수 있습니다.
+같은 그룹 안에서는 OR, 그룹 간에는 AND로 결합합니다. 필터는 URL로 공유하고 브라우저에 저장할 수 있습니다.
+원본의 영문 필터 URL과 한국어 이름·태그를 사용한 URL도 인식합니다.
+
+원본 마감일과 시간대 정보를 유지하고 표시 시점에 `Asia/Seoul`로 변환합니다.
+AoE 기본값(UTC−12), 연도 템플릿, 정각 1초 전·59분의 59초 보정 규칙은 원본과 같습니다.
+학회 공식 명칭과 장소는 원문을 유지하며, 개최 날짜는 현지 기준입니다.
+
+원본 소스 링크와 제작자·관리자·기여자 출처를 화면 상단·하단과
+[출처·라이선스 안내](https://hoyoi05.github.io/sec-deadlines/attribution.html)에 명시했습니다.
+기준 원본에는 별도 LICENSE 파일이 없으므로 원본에 임의로 MIT 등 새 라이선스를 부여하지 않습니다.
+출처 표시가 원저작권자의 수정·재배포 허락을 대신하지는 않습니다.
+함께 배포하는 Moment.js와 Moment Timezone의 MIT 라이선스는 `static/vendor/`에 보존합니다.
+
+## 개발 및 배포
+
+```sh
+npm ci --ignore-scripts
+npm test
+npm run preview:build
+node scripts/verify-site.cjs .preview/sec-deadlines
+python -m http.server 4173 --bind 127.0.0.1 --directory .preview
+```
+
+로컬 미리보기: `http://127.0.0.1:4173/sec-deadlines/`.
+미리보기는 LiquidJS를 사용하고, 실제 배포는 GitHub의 Jekyll 빌드로 검증합니다.
+`master` 푸시 시 `.github/workflows/pages.yml`이 테스트 → Jekyll 빌드 → 생성물 검증 → Pages 배포를 수행합니다.
+사이트 설정의 `baseurl: /sec-deadlines`를 유지해야 CSS·스크립트·출처 안내 경로가 올바르게 연결됩니다.
+
+학회 데이터 갱신 시 `_data/conferences.yml`과 `_config.yml`의 `upstream_revision`, `upstream_updated`를 함께 갱신하세요.
+태그의 `name`·`tag`는 원본 값을 유지하고 한국어 표시만 `name_ko`에서 관리합니다.
 
 로컬 Git의 `origin`은 이 저장소, `upstream`은 원본 저장소를 가리킵니다.
-아래에는 원본 프로젝트의 출처와 데이터 관리 문서를 보존합니다.
+아래에는 원본 프로젝트의 출처와 데이터 관리 문서를 보존합니다. 아래의 방문자 현지 시간 표시는 원본의 동작 설명이며, 이 한국어 버전은 KST로 고정합니다.
 
 ---
 

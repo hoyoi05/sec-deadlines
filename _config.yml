@@ -1,14 +1,28 @@
-title: Security and Privacy Conference Deadlines
-description: Countdowns to top Security and Privacy conference deadlines.
-author: Bogdan Kulynych
+title: 보안 학회 마감일
+description: 보안·프라이버시·암호 분야 학회 마감일을 대한민국 시간으로 확인하세요.
+author: hoyoi05
 
-domain: "sec-deadlines.github.io"
-baseurl: ""
+url: "https://hoyoi05.github.io"
+domain: "hoyoi05.github.io"
+baseurl: "/sec-deadlines"
+timezone: Asia/Seoul
+lang: ko-KR
 
-twitter_username: hiddenmarkov
-github_username: sec-deadlines
+github_username: hoyoi05
 github_repo: sec-deadlines
-ga_id: UA-104921371-1
+upstream_url: "https://github.com/sec-deadlines/sec-deadlines.github.io"
+upstream_site: "https://sec-deadlines.github.io/"
+upstream_revision: "75dfb2da5ad38d312fadce2c046f196dac7d6d3a"
+upstream_updated: "2026-09-07"
 
 markdown: kramdown
+exclude:
+  - node_modules
+  - package.json
+  - package-lock.json
+  - scripts
+  - tests
+  - README.md
+  - .preview
+  - test-results
 

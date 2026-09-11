@@ -1,0 +1,48 @@
+---
+---
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>출처·라이선스 안내 · {{ site.title }}</title>
+  <link rel="stylesheet" href="{{ site.baseurl }}/static/css/deadlines.css">
+</head>
+<body>
+  <main class="document">
+    <p><a href="{{ site.baseurl }}/">← 마감일 목록으로 돌아가기</a></p>
+    <h1>출처·라이선스 안내</h1>
+    <h2>원본 프로젝트</h2>
+    <ul>
+      <li>원본 사이트: <a href="{{ site.upstream_site }}">Security and Privacy Conference Deadlines</a></li>
+      <li>원본 소스: <a href="{{ site.upstream_url }}">sec-deadlines/sec-deadlines.github.io</a></li>
+      <li>기준 소스: <a href="{{ site.upstream_url }}/tree/{{ site.upstream_revision }}">{{ site.upstream_revision }}</a> ({{ site.upstream_updated }})</li>
+      <li>원본 제작: Bogdan Kulynych. 원본 유지관리: Clement Fung, Hocheol Nam 및 <a href="{{ site.upstream_url }}/graphs/contributors">원본 기여자</a>.</li>
+      <li>원본의 기반 프로젝트: <a href="https://github.com/abhshkdz/ai-deadlines">ai-deadlines</a> — Abhishek Das.</li>
+    </ul>
+    <h2>한국어 버전의 변경 사항</h2>
+    <p><a href="https://github.com/hoyoi05/sec-deadlines">hoyoi05/sec-deadlines</a>는 원본을 포크한 비공식 한국어 버전입니다.
+      학회 데이터, 태그 코드, 연구 분야·출판 유형·CORE 등급의 3개 필터 그룹을 유지했습니다.
+      그룹 내부 OR, 그룹 간 AND 규칙과 원본의 마감 시각 보정 규칙도 유지합니다.</p>
+    <p>화면과 필터 이름을 한국어로 번역하고, 마감일을 Asia/Seoul(KST, UTC+9)로 고정 표시하도록 변경했습니다.
+      명시적인 원본 시간대가 없는 마감은 원본과 동일하게 AoE(UTC−12)로 해석합니다.
+      원본이 분 단위로 제공하는 시각 중 00분은 1초 전으로, 59분은 해당 분의 59초로 표시하는 규칙을 따릅니다.</p>
+    <p>학회명과 공식 영문 명칭·장소는 원본 표기를 유지합니다. 개최 일정은 개최지의 날짜이며,
+      별도 안내의 AoE 기준 초록 등록 시각은 본문에서 KST로 변환한 논문 제출 마감과 구분됩니다.
+      ‘국가 단위 / 미등급’은 원본 National/Unranked의 번역으로, 대한민국 학회만을 뜻하지 않습니다.</p>
+    <h2>라이선스 상태</h2>
+    <p>2026년 9월 11일 확인한 기준 소스에는 프로젝트 전체에 적용되는 별도 LICENSE 파일이 없습니다.
+      원본 코드·데이터의 저작권은 각 권리자에게 있으며, 이 한국어 버전은 원본에 새로운 라이선스를 부여하거나
+      권리를 이전받았다고 주장하지 않습니다. 원본의 이력과 저작자 표기를 보존합니다.</p>
+    <p>출처 표시는 이용 허락을 대신하지 않습니다. 포크 외 수정·재배포에 필요한 권한은 원저작권자에게 별도로 확인해야 합니다.
+      <a href="https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository">GitHub의 저장소 라이선스 안내</a>를 참고하세요.</p>
+    <h2>사용 라이브러리</h2>
+    <p>현재 화면은 Moment.js 2.30.1과 Moment Timezone 0.6.3의 전체 시간대 데이터를 사용합니다.
+      라이브러리를 함께 배포하며 MIT 라이선스 원문과 저작권 고지를 보존합니다.</p>
+    <ul>
+      <li><a href="https://github.com/moment/moment">Moment.js</a> · <a href="{{ site.baseurl }}/static/vendor/MOMENT-LICENSE.txt">라이선스 원문</a></li>
+      <li><a href="https://github.com/moment/moment-timezone">Moment Timezone</a> · <a href="{{ site.baseurl }}/static/vendor/MOMENT-TIMEZONE-LICENSE.txt">라이선스 원문</a></li>
+    </ul>
+  </main>
+</body>
+</html>
