@@ -1,3 +1,23 @@
+# 보안 학회 마감일 — 한국어 · 대한민국 시간
+
+[Security and Privacy Conference Deadlines](https://sec-deadlines.github.io/)를 기반으로,
+보안·프라이버시·암호 분야 학회 마감일을 한국어와 대한민국 시간으로 제공하기 위한 프로젝트입니다.
+
+- 저장소: [hoyoi05/sec-deadlines](https://github.com/hoyoi05/sec-deadlines)
+- 원본 소스: [sec-deadlines/sec-deadlines.github.io](https://github.com/sec-deadlines/sec-deadlines.github.io)
+- 표시 언어: 한국어 (`ko-KR`, 구현 예정)
+- 표시 시간대: 대한민국 표준시 (`Asia/Seoul`, KST, UTC+9, 구현 예정)
+- 배포 대상: GitHub Pages
+- 배포 예정 주소: `https://hoyoi05.github.io/sec-deadlines/`
+
+현재는 원본 저장소를 포크한 초기 상태입니다. 한국어 화면, KST 고정 표시, GitHub Pages 배포는 이후 구현할 예정입니다.
+시간대 변환 시 원본 마감일과 시간대 정보를 유지하고, 표시 시점에 `Asia/Seoul`로 변환합니다.
+
+로컬 Git의 `origin`은 이 저장소, `upstream`은 원본 저장소를 가리킵니다.
+아래에는 원본 프로젝트의 출처와 데이터 관리 문서를 보존합니다.
+
+---
+
 # Security and Privacy deadlines countdown
 
 Based on [ai-deadlines](https://aideadlin.es) by @abshkdz
