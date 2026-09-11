@@ -35,6 +35,10 @@
       <p class="update-note">원본 데이터 갱신: {{ site.upstream_updated | date: "%Y년 %m월 %d일" }}
         · 추가 AI 학회 공식 CFP 확인: {{ site.ai_cfp_checked | date: "%Y년 %m월 %d일" }}
         · 학회 개최 일정과 장소는 개최지 기준입니다.</p>
+      <p class="update-note"><strong>매일 오전 9:17 KST 자동 점검</strong> · 마지막 점검: {{ site.data.updates.checked_at_kst | default: '첫 실행 대기' | escape }}
+        · <a href="{{ site.baseurl }}/updates.html">갱신 상태·공식 출처 점검 결과</a>
+        {% if site.data.updates.changed_count > 0 %} · 공식 페이지 변경 {{ site.data.updates.changed_count }}건 검토 필요{% endif %}
+        {% if site.data.updates.error_count > 0 %} · 점검 실패 {{ site.data.updates.error_count }}건{% endif %}</p>
     </header>
     <main>
       <section class="filters" aria-labelledby="filter-heading">
@@ -53,7 +57,7 @@
               <label class="filter-option" for="{{ type.tag }}-checkbox">
                 <input type="checkbox" id="{{ type.tag }}-checkbox" value="{{ type.tag }}" class="filter-checkbox"
                   data-group="{{ query_keys[group_index] }}" data-name="{{ type.name | escape }}" data-label="{{ type.name_ko | default: type.name | escape }}">
-                <span>{{ type.name_ko | default: type.name }}</span>
+                <span>{{ type.name_ko | default: type.name | escape }}</span>
               </label>
               {% endfor %}
             </div>
@@ -83,14 +87,14 @@
             data-deadline-status="{{ conf.deadline_status | default: 'confirmed' }}"
             data-timezone="{{ conf.timezone | default: 'Etc/GMT+12' | escape }}" data-tags="{{ conf.tags | join: ' ' | escape }}">
             <div class="conf-info">
-              <h3><a href="{{ conf.link | escape }}">{{ conf.name }} {{ conf.year }} <span aria-hidden="true">↗</span></a></h3>
+              <h3><a href="{{ conf.link | escape }}">{{ conf.name | escape }} {{ conf.year }} <span aria-hidden="true">↗</span></a></h3>
               <p class="conf-description">{{ conf.description | escape }}</p>
               <p class="meta">개최: <span class="event-date">{{ conf.date | escape }}</span>
                 {% if conf.place %} · <a href="https://maps.google.com/?q={{ conf.place | url_encode }}">{{ conf.place | escape }}</a>{% endif %}
                 {% if conf.dblp %} · <a href="{{ conf.dblp | escape }}">DBLP</a>{% endif %}</p>
               <div class="tags">
                 {% for group in group_keys %}{% for type in site.data.filters[group] %}
-                {% if conf.tags contains type.tag %}<span data-tag="{{ type.tag }}">{{ type.name_ko | default: type.name }}</span>{% endif %}
+                {% if conf.tags contains type.tag %}<span data-tag="{{ type.tag }}">{{ type.name_ko | default: type.name | escape }}</span>{% endif %}
                 {% endfor %}{% endfor %}
               </div>
               <p class="cfp-source">

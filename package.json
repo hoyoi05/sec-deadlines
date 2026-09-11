@@ -5,7 +5,9 @@
   "scripts": {
     "test": "node --test tests/*.test.cjs",
     "preview:build": "node scripts/preview.cjs",
-    "verify:site": "node scripts/verify-site.cjs"
+    "verify:site": "node scripts/verify-site.cjs",
+    "update:data": "node scripts/update-data.cjs",
+    "sources:accept": "node scripts/accept-source.cjs"
   },
   "devDependencies": {
     "js-yaml": "5.4.1",

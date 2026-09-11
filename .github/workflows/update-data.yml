@@ -1,0 +1,65 @@
+name: Update conference data daily
+
+on:
+  schedule:
+    # UTC 00:17 = Korea 09:17. Avoid the busy start of the hour.
+    - cron: '17 0 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: conference-data-update
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: write
+    outputs:
+      commit: ${{ steps.commit.outputs.sha }}
+    steps:
+      - name: Check out maintained site
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          ref: master
+          fetch-depth: 0
+      - name: Set up Node
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci --ignore-scripts
+      - name: Sync upstream data and check official AI pages
+        run: node scripts/update-data.cjs
+      - run: node scripts/ensure-upstream.cjs
+      - run: npm test
+      - run: npm run preview:build
+      - run: node scripts/verify-site.cjs .preview/sec-deadlines
+      - name: Commit validated data and check status
+        id: commit
+        shell: bash
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add _data/conferences.yml _data/filters.yml _config.yml _data/updates.yml sources/cfp-baselines.json
+          if ! git diff --cached --quiet; then
+            git commit -m 'Refresh conference data and official source status'
+            git push origin HEAD:master
+          fi
+          echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+
+  # A GITHUB_TOKEN push does not trigger another push workflow.
+  # Explicitly call Pages so this exact validated revision is still published.
+  deploy:
+    needs: refresh
+    uses: ./.github/workflows/pages.yml
+    with:
+      ref: ${{ needs.refresh.outputs.commit }}
+    permissions:
+      contents: read
+      pages: write
+      id-token: write

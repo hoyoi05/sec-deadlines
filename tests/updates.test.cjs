@@ -1,0 +1,78 @@
+const test = require('node:test');
+const assert = require('node:assert/strict');
+const fs = require('node:fs');
+const yaml = require('js-yaml');
+const { normalizeHTML, fingerprint, assessSource, monitorSources, fetchPage } = require('../scripts/source-monitor.cjs');
+const { enrichConferences, translateFilters, validateData } = require('../scripts/upstream-data.cjs');
+const source = { name: 'Example CFP', url: 'https://example.org/cfp', kind: 'cfp' };
+const page = date => `<html><head><title>Call for Papers</title></head><nav>Menu</nav><main><h1>Call for Papers</h1><p>Paper submission deadline: ${date}, 23:59 Anywhere on Earth UTC-12. Authors must submit a complete manuscript and register their abstract before the deadline. Read the paper submission instructions carefully.</p></main></html>`;
+const now = '2026-09-11T07:00:00.000Z';
+test('page comparison ignores formatting and scripts while retaining date/timezone changes', () => {
+  assert.equal(normalizeHTML('<main>A&nbsp; B<script>danger()</script></main>'), 'A B');
+  assert.equal(fingerprint(page('September 25').replace('<p>', '<p class="updated">')), fingerprint(page('September 25')));
+  assert.notEqual(fingerprint(page('September 25')), fingerprint(page('September 26')));
+  assert.notEqual(fingerprint(page('September 25')), fingerprint(page('September 25').replace('UTC-12', 'UTC+9')));
+  assert.throws(() => fingerprint('<title>Just a moment</title>' + page('September 25')));
+});
+test('detected source changes remain pending on subsequent runs until reviewed', () => {
+  const initial = assessSource(source, page('September 25'), undefined, undefined, now);
+  assert.equal(initial.report.status, 'baseline');
+  const changed = assessSource(source, page('September 26'), initial.baseline, initial.report, now);
+  const again = assessSource(source, page('September 26'), changed.baseline, changed.report, '2026-09-12T07:00:00.000Z');
+  assert.equal(again.report.status, 'changed');
+  assert.equal(again.report.changed_since, now);
+  assert.equal(again.baseline.hash, initial.baseline.hash);
+  const reverted = assessSource(source, page('September 25'), initial.baseline, again.report, now);
+  assert.equal(reverted.report.status, 'unchanged');
+});
+test('network failures preserve comparison baseline, prior successful check and pending state', async () => {
+  const baseline = { hash: fingerprint(page('September 25')), recorded_at: now };
+  const previous = [{ ...source, status: 'changed', last_success: now, changed_since: now }];
+  const result = await monitorSources([source], { [source.url]: baseline }, previous, '2026-09-12T07:00:00.000Z', async () => { throw new Error('HTTP 503'); });
+  assert.deepEqual(result.baselines[source.url], baseline);
+  assert.equal(result.reports[0].status, 'error');
+  assert.equal(result.reports[0].last_success, now);
+  assert.equal(result.reports[0].changed_since, now);
+  assert.equal(previous[0].status, 'changed');
+});
+test('HTTP errors and unexpectedly large responses are not accepted as source baselines', async () => {
+  await assert.rejects(fetchPage(source.url, async () => new Response('error', { status: 503 })), /HTTP 503/);
+  await assert.rejects(fetchPage(source.url, async () => new Response('x'.repeat(2_000_001), { headers: { 'content-type': 'text/html' } })), /크기 제한/);
+  await assert.rejects(fetchPage('http://example.org/'), /HTTPS/);
+});
+const conf = { name: 'SaTML', year: 2027, deadline: ['2026-09-29 23:59'], link: 'https://satml.org/', tags: ['SEC', 'CONF'] };
+const filters = { filter1: [{ name: 'Security', tag: 'SEC', name_ko: '보안' }], filter2: [{ name: 'Conferences', tag: 'CONF', name_ko: '학술대회' }], filter3: [{ name: 'A', tag: 'CORE-A', name_ko: 'A' }] };
+test('upstream deadline and new-edition changes are applied without carrying stale CFP verification', () => {
+  const enriched = { ...conf, tags: ['SEC', 'CONF', 'AI'], cfp: 'https://satml.org/call-for-papers/', checked_on: '2026-09-11', registration_deadline: ['2026-09-22 23:59'] };
+  assert.equal(enrichConferences([conf], [enriched])[0].cfp, enriched.cfp);
+  const updated = enrichConferences([{ ...conf, deadline: ['2026-10-01 23:59'] }], [enriched])[0];
+  assert.deepEqual(updated.deadline, ['2026-10-01 23:59']);
+  assert.ok(updated.tags.includes('AI'));
+  assert.equal(updated.cfp, undefined);
+  assert.equal(updated.registration_deadline, undefined);
+  const nextYear = enrichConferences([{ ...conf, year: 2028 }], [enriched])[0];
+  assert.ok(nextYear.tags.includes('AI'));
+  assert.equal(nextYear.checked_on, undefined);
+});
+test('new upstream tags keep existing Korean translations and invalid data is rejected', () => {
+  const original = structuredClone(filters);
+  for (const group of Object.values(original)) for (const tag of group) delete tag.name_ko;
+  const translated = translateFilters(original, filters);
+  assert.equal(translated.filter1[0].name_ko, '보안');
+  assert.equal(translated.filter1[1].tag, 'AI');
+  validateData([conf], translated);
+  assert.throws(() => validateData([{ ...conf, deadline: ['2026-02-31 23:59'] }], translated));
+  assert.throws(() => validateData([{ ...conf, link: 'javascript:alert(1)' }], translated));
+  assert.throws(() => validateData([conf, conf], translated));
+  assert.throws(() => translateFilters({ filter4: [] }, filters));
+});
+test('scheduled updates explicitly deploy the validated bot commit via a reusable workflow', () => {
+  const update = yaml.load(fs.readFileSync('.github/workflows/update-data.yml', 'utf8'));
+  const pages = yaml.load(fs.readFileSync('.github/workflows/pages.yml', 'utf8'));
+  assert.equal(update.on.schedule[0].cron, '17 0 * * *');
+  assert.equal(update.jobs.deploy.uses, './.github/workflows/pages.yml');
+  assert.equal(update.jobs.deploy.with.ref, '${{ needs.refresh.outputs.commit }}');
+  assert.equal(pages.on.workflow_call.inputs.ref.required, true);
+  assert.equal(pages.jobs.build.steps[0].with.ref, '${{ inputs.ref || github.sha }}');
+  assert.equal(update.jobs.refresh.permissions.contents, 'write');
+});

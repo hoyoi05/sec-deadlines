@@ -1,0 +1,52 @@
+---
+---
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>자동 갱신 상태 · {{ site.title }}</title>
+  <link rel="stylesheet" href="{{ site.baseurl }}/static/css/deadlines.css">
+</head>
+<body>
+  <main class="document">
+    <p><a href="{{ site.baseurl }}/">← 마감일 목록으로 돌아가기</a></p>
+    <h1>자동 갱신 상태</h1>
+    <p>매일 오전 <strong>9시 17분(KST)</strong>에 GitHub Actions가 실행됩니다. 원본 학회 데이터는 검증 후 자동 반영하고 GitHub Pages를 재배포합니다.
+      GitHub 실행 대기 상황에 따라 시작 시각이 늦어질 수 있습니다.</p>
+    <p>마지막 자동 점검: <strong id="last-source-check">{{ site.data.updates.checked_at_kst | default: '첫 실행 대기' | escape }}</strong><br>
+      <a href="https://github.com/{{ site.github_username }}/{{ site.github_repo }}/actions/workflows/update-data.yml">실행 기록·수동 실행 ↗</a></p>
+    <h2>원본 데이터 동기화</h2>
+    {% assign upstream = site.data.updates.upstream %}
+    <p>{% case upstream.status %}{% when 'updated' %}새 원본 데이터를 반영했습니다.
+      {% when 'unchanged' %}점검 당시 원본 데이터와 동기화되어 있습니다.
+      {% when 'error' %}원본 동기화에 실패하여 이전에 검증한 데이터를 유지했습니다.
+      {% else %}첫 실행을 기다리고 있습니다.{% endcase %}</p>
+    {% if upstream.error %}<p class="notice">{{ upstream.error | escape }}</p>{% endif %}
+    <p>반영 기준: <a href="{{ site.upstream_url }}/tree/{{ site.upstream_revision }}">원본 커밋 {{ site.upstream_revision | slice: 0, 7 }}</a> ·
+      원본 갱신일 {{ site.upstream_updated }}</p>
+    <h2>AI 공식 페이지 점검</h2>
+    <p>등록된 공식 CFP와 다음 회차 공지를 확인할 수 있는 공식 홈페이지의 본문 변경을 점검합니다.
+      <strong>페이지 변경 감지는 마감일을 다시 검증했다는 뜻이 아닙니다.</strong>
+      새 회차·연장 공지·시간대 변경의 의미는 사람이 공식 CFP를 확인한 후 반영합니다. 기존 학회 항목의 ‘확인일’은 이 자동 점검으로 바뀌지 않습니다.</p>
+    <p>‘변경 검토 필요’는 날짜 외의 문구 변경도 포함할 수 있으며, 검토한 내용을 기준으로 다시 저장할 때까지 유지됩니다.
+      ‘접속 실패’는 변경 없음으로 처리하지 않습니다. 기존 일정과 마지막 정상 확인 기록을 유지합니다.</p>
+    <p>공식 페이지 변경: <strong>{{ site.data.updates.changed_count | default: 0 }}건</strong> ·
+      전체 점검 실패: <strong>{{ site.data.updates.error_count | default: 0 }}건</strong></p>
+    <ul class="source-checks">
+      {% for source in site.data.updates.sources %}
+      <li>
+        <a href="{{ source.url | escape }}">{{ source.name | escape }} ↗</a>
+        <span class="check-status check-{{ source.status }}">{% case source.status %}
+          {% when 'baseline' %}비교 기준 생성{% when 'unchanged' %}본문 변경 없음{% when 'changed' %}변경 검토 필요{% when 'error' %}접속 실패{% endcase %}</span>
+        {% if source.kind == 'cfp' %}<span class="meta">공식 CFP</span>{% elsif source.kind == 'announcement' %}<span class="meta">공식 발표</span>{% else %}<span class="meta">홈페이지·다음 회차 공지</span>{% endif %}
+        {% if source.error %}<p class="meta">{{ source.error | escape }}</p>{% endif %}
+        {% if source.changed_since and source.status == 'error' %}<p class="meta">이전에 감지된 변경도 아직 검토가 필요합니다.</p>{% endif %}
+        {% if source.last_success_kst %}<p class="meta">마지막 정상 응답: {{ source.last_success_kst | escape }}</p>{% endif %}
+      </li>
+      {% endfor %}
+    </ul>
+    <p><a href="{{ site.baseurl }}/attribution.html">원본 출처·라이선스 안내</a></p>
+  </main>
+</body>
+</html>

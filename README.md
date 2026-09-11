@@ -63,6 +63,7 @@ AoE 기본값(UTC−12), 연도 템플릿, 정각 1초 전·59분의 59초 보�
 
 ```sh
 npm ci --ignore-scripts
+node scripts/ensure-upstream.cjs
 npm test
 npm run preview:build
 node scripts/verify-site.cjs .preview/sec-deadlines
@@ -73,6 +74,44 @@ python -m http.server 4173 --bind 127.0.0.1 --directory .preview
 미리보기는 LiquidJS를 사용하고, 실제 배포는 GitHub의 Jekyll 빌드로 검증합니다.
 `master` 푸시 시 `.github/workflows/pages.yml`이 테스트 → Jekyll 빌드 → 생성물 검증 → Pages 배포를 수행합니다.
 사이트 설정의 `baseurl: /sec-deadlines`를 유지해야 CSS·스크립트·출처 안내 경로가 올바르게 연결됩니다.
+
+## 지속 업데이트
+
+[Update conference data daily](https://github.com/hoyoi05/sec-deadlines/actions/workflows/update-data.yml)가 매일 **오전 9시 17분 KST**에 실행됩니다.
+GitHub Actions의 UTC 일정으로 설정했으며, Actions 화면에서 **Run workflow**로 즉시 실행할 수도 있습니다.
+별도 API 키·개인 액세스 토큰 없이 저장소의 기본 `GITHUB_TOKEN`을 사용합니다.
+
+1. 원본 저장소 `master`의 학회 데이터와 필터 정의를 가져옵니다. 원본 코드나 워크플로는 가져와 실행하지 않습니다.
+2. 한국어 필터명과 AI 태그를 유지하면서 원본 마감일 변경과 새 학회·회차를 반영합니다. 마감 시각이 변경되면 이전 시각을 기준으로 확인한 CFP·사전 등록 메타데이터는 제거합니다.
+3. 등록된 AI 공식 CFP·발표 페이지와 공식 홈페이지의 본문 변경을 점검합니다. 홈페이지 점검은 다음 회차 공지를 발견하기 위한 보조 기능입니다.
+4. 데이터·시간대·중복·회귀 테스트를 통과하면 봇이 변경과 점검 기록을 커밋합니다. 동일 실행에서 재사용 Pages 워크플로를 호출하여 그 커밋을 배포합니다.
+
+**원본 데이터는 자동 갱신되며, AI CFP의 의미 해석과 신규 회차 등록은 검토 후 반영합니다.**
+CFP마다 초록·본문·수정본·특별 트랙·시간대의 표기 방식이 달라 본문 변경만으로 마감일을 덮어쓰지 않습니다.
+자동 점검은 `checked_on`(사람이 CFP에서 마감일을 확인한 날짜)을 변경하지 않습니다.
+현재 등록된 공식 URL만 점검하므로 모든 새 학회·회차를 자동 발견하는 기능은 아닙니다.
+
+마지막 점검 시각과 각 출처 상태는 [자동 갱신 상태](https://hoyoi05.github.io/sec-deadlines/updates.html)에서 공개합니다.
+첫 정상 응답으로 비교 기준을 만들고, 이후 변경은 검토가 끝날 때까지 ‘변경 검토 필요’로 남습니다.
+CFP 접속 실패 시 비교 기준·기존 마감일을 보존하며, 원본 형식 오류·학회 수 20% 이상 감소 등은 자동 반영을 보류합니다.
+출처 점검 실패는 상태 페이지와 Actions 경고·실행 요약에 표시합니다. 필수 테스트·빌드·푸시가 실패하면 배포하지 않습니다.
+
+공식 CFP 변경을 검토한 후에는 일정과 해당 `checked_on`을 수정하고, 다음 명령으로 비교 기준을 갱신합니다.
+
+```sh
+npm run sources:accept -- https://iclr.cc/Conferences/2027/CallForPapers
+npm run update:data
+```
+
+검토한 출처만 개별 갱신하세요. `sources/cfp-baselines.json`에는 본문 전체 대신 SHA-256과 기준 생성 시각만 저장합니다.
+공식 홈페이지 추가·수정은 `scripts/official-homepages.json`에서 관리합니다.
+원본 보안 학회의 AI 분류 목록은 `scripts/upstream-data.cjs`의 `AI_NAMES`에 있으며, 같은 이름의 새 회차에도 이어집니다.
+
+GitHub의 예약 실행은 부하에 따라 지연되거나 누락될 수 있고, 공개 저장소에 60일간 활동이 없으면 비활성화될 수 있습니다.
+오랫동안 점검 시각이 갱신되지 않으면 Actions 실행 상태를 확인하세요.
+[GitHub 예약 실행 안내](https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows#schedule).
+봇 토큰으로 푸시한 커밋은 다른 `push` 워크플로를 시작하지 않으므로, 배포를 같은 실행에서 명시적으로 호출합니다.
+[GitHub 워크플로 트리거 안내](https://docs.github.com/en/actions/how-tos/write-workflows/choose-when-workflows-run/trigger-a-workflow).
 
 학회 데이터 갱신 시 `_data/conferences.yml`과 `_config.yml`의 `upstream_revision`, `upstream_updated`를 함께 갱신하세요.
 AI 일정은 각 공식 CFP에서 트랙·시각·시간대·사전 등록 요건을 확인한 뒤 `_data/ai_conferences.yml`과 확인일을 갱신하세요.

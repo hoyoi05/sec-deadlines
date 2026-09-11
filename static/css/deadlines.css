@@ -76,6 +76,11 @@ footer p { margin-bottom: 10px; }
 .document h1 { font-size: 30px; }
 .document h2 { margin: 30px 0 10px; font-size: 20px; }
 .document p, .document ul { margin: 12px 0; }
+.source-checks { list-style: none; padding: 0; }
+.source-checks li { padding: 14px 0; border-bottom: 1px solid var(--line); }
+.source-checks li p { margin: 3px 0 0; }
+.check-status { display: inline-block; font-size: 11px; padding: 2px 7px; margin: 0 5px; border-radius: 4px; background: var(--soft); }
+.check-changed, .check-error { background: #fff0d6; color: #755016; }
 @media (max-width: 640px) {
   .container { padding: 0 18px; }
   .top-nav { padding: 17px 0; font-size: 11px; }

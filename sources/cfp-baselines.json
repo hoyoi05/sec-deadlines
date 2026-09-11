@@ -1,0 +1,106 @@
+{
+  "https://satml.org/call-for-papers/": {
+    "hash": "170c1619cb034023c9706a38ecd81b09f383afc56bd0a458a0a2bc8208b42e33",
+    "recorded_at": "2026-09-11T07:34:53.437Z"
+  },
+  "https://iclr.cc/Conferences/2027/CallForPapers": {
+    "hash": "cf606ef7b7c9a1b5c34263c75e731de69713f33e1cee64c160bf1f730d73deeb",
+    "recorded_at": "2026-09-11T07:34:53.437Z"
+  },
+  "https://www.usenix.org/conference/sais27": {
+    "hash": "4f1ca5159e1cfe416fd436a904ac7b0321b1cd9263213b5ceb62c0a68083370f",
+    "recorded_at": "2026-09-11T07:34:53.437Z"
+  },
+  "https://aaai.org/conference/aaai/aaai-27/main-technical-track-call/": {
+    "hash": "ba64514f1cb8636015689aff89b7a75e7c96694373b02121334f960272a8ab2c",
+    "recorded_at": "2026-09-11T07:34:53.437Z"
+  },
+  "https://virtual.aistats.org/Conferences/2027/CallForPapers": {
+    "hash": "87f0ab648b7437f0fd79e6f7508ec289425577062a77ace4ed0f4573ad430022",
+    "recorded_at": "2026-09-11T07:34:53.437Z"
+  },
+  "https://cvpr.thecvf.com/Conferences/2027/CallForPapers": {
+    "hash": "23cb124685b7890f589c777d34bc38314a7e7c8fcfc1e75c0156858a80971fce",
+    "recorded_at": "2026-09-11T07:34:53.437Z"
+  },
+  "https://2026.ijcai.org/ijcai-ecai-2026-call-for-papers-main-track/": {
+    "hash": "11665dfc18399d96051527323d41fcd56f5984ae11b8f7a876a7aca8eac25d11",
+    "recorded_at": "2026-09-11T07:34:53.437Z"
+  },
+  "https://2026.aclweb.org/calls/main_conference_papers/": {
+    "hash": "99d8139d956677aecdbbbde3f9d686eca0a90b97c4ec668be5769dcd0ba56d9b",
+    "recorded_at": "2026-09-11T07:34:53.437Z"
+  },
+  "https://neurips.cc/Conferences/2026/CallForPapers": {
+    "hash": "14d162b13a4ed8cb6c2462cd0d8823df13a33c15719b83bc06e986e64ec7ff00",
+    "recorded_at": "2026-09-11T07:34:53.437Z"
+  },
+  "https://2026.emnlp.org/calls/main_conference_papers/": {
+    "hash": "309f05f7c62d01cf44b0980cfcbb88c0958a0930d2791dec056c47240f873953",
+    "recorded_at": "2026-09-11T07:34:53.437Z"
+  },
+  "https://icml.cc/Conferences/2026/CallForPapers": {
+    "hash": "51055e91dfbe80b18e06b9be55fc88f724391d93448813e170373d40069b0f7b",
+    "recorded_at": "2026-09-11T07:34:53.437Z"
+  },
+  "https://www.auai.org/uai2026/call_for_papers": {
+    "hash": "10de515815b4ff806e5f580b8f4c0727ad94c309162c7666fe7949f56974c856",
+    "recorded_at": "2026-09-11T07:34:53.437Z"
+  },
+  "https://learningtheory.org/colt2026/cfp.html": {
+    "hash": "8ff1399b542765305c7887563daaa8b5d3c5ec03e628f086bdefb27509259b55",
+    "recorded_at": "2026-09-11T07:34:53.437Z"
+  },
+  "https://wacv.thecvf.com/Conferences/2027/CallForPapers": {
+    "hash": "a4e516bf40445ae48bfb528a45202de46cfe3814493d60819a9e82cd3d5e0a55",
+    "recorded_at": "2026-09-11T07:34:53.437Z"
+  },
+  "https://aistats.org/": {
+    "hash": "d94e732ad66e056e79df2f05672520ed9dea47b6d742fd19540ec9b4624095cc",
+    "recorded_at": "2026-09-11T07:34:53.437Z"
+  },
+  "https://iclr.cc/": {
+    "hash": "7e7a8d0322330024c36c499cf8285bfe153789287862b4ac031519c986c57082",
+    "recorded_at": "2026-09-11T07:34:53.437Z"
+  },
+  "https://cvpr.thecvf.com/": {
+    "hash": "710548d359ecfb675eb666e72a3ae51e81f2efe9d0ac4a5f169c338acf67cf71",
+    "recorded_at": "2026-09-11T07:34:53.437Z"
+  },
+  "https://aaai.org/conference/aaai/": {
+    "hash": "0a9237f8e5a4db4a950dd5fb1351db5dc6bb7bf65502e808e4f307566851ef7e",
+    "recorded_at": "2026-09-11T07:34:53.437Z"
+  },
+  "https://neurips.cc/": {
+    "hash": "f499c3a8ccc056d94625d160967b3fd848c9c036851c2e0dac502f63956e3b84",
+    "recorded_at": "2026-09-11T07:34:53.437Z"
+  },
+  "https://icml.cc/": {
+    "hash": "b144eeabcda6b11feb91143466bf46d11b30f64f5103f504cc1d97e8e1b0ce7f",
+    "recorded_at": "2026-09-11T07:34:53.437Z"
+  },
+  "https://learningtheory.org/": {
+    "hash": "7eaaa6f3f8002bdf72727ec1f97dfdae6609d921906f4881a1b62ab9d91d5e27",
+    "recorded_at": "2026-09-11T07:34:53.437Z"
+  },
+  "https://www.ijcai.org/": {
+    "hash": "f4196fb852ce63f54d45e6bbedff466bdd7632fb2ddb602f40eeaccb74c8ab8a",
+    "recorded_at": "2026-09-11T07:34:53.437Z"
+  },
+  "https://www.auai.org/": {
+    "hash": "76b305122e4126ee6d2df8f51033158681ad29759d9842f6ed2e441d7e82dc93",
+    "recorded_at": "2026-09-11T07:34:53.437Z"
+  },
+  "https://satml.org/": {
+    "hash": "458732c8185c6e2e02b24c6629957564be36327e4b80d9bfc9f48a24a1f94c68",
+    "recorded_at": "2026-09-11T07:34:53.437Z"
+  },
+  "https://wacv.thecvf.com/": {
+    "hash": "947105321fe234e68b6c56fda67fbb09c1cfae4833e59bb0bfce40a5e5d2b416",
+    "recorded_at": "2026-09-11T07:34:53.437Z"
+  },
+  "https://www.aclweb.org/portal/events": {
+    "hash": "07ff110d75b730c64565059f1012bf99acc106b0711c875b65b0803ef5d89d18",
+    "recorded_at": "2026-09-11T07:34:53.437Z"
+  }
+}
