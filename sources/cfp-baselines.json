@@ -162,5 +162,9 @@
   "https://dfrws.org/": {
     "hash": "d0e0a573282ee3c97c4a9b10ec2885c4b9499d8ddb9438e835a6760f9996faa2",
     "recorded_at": "2026-09-11T07:56:31.486Z"
+  },
+  "https://dfrws.org/conferences/dfrws-apac-2026/": {
+    "hash": "2c18c530d2e5d7ebb1ebe9be83a5b88520e53e22df29e95e8e85deef77e0232f",
+    "recorded_at": "2026-09-12T04:39:35.898Z"
   }
 }
