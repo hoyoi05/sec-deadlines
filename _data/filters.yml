@@ -1,47 +1,45 @@
 filter1:
   - name: Security
-    name_ko: 보안
     tag: SEC
+    name_ko: 보안
   - name: Privacy
-    name_ko: 프라이버시
     tag: PRIV
+    name_ko: 프라이버시
   - name: Crypto
-    name_ko: 암호
     tag: CRYPTO
+    name_ko: 암호
   - name: AI
     name_ko: AI (인공지능)
     tag: AI
   - name: Digital Forensics
     name_ko: 디지털포렌식
     tag: FORENSICS
-
 filter2:
   - name: Conferences
-    name_ko: 학술대회
     tag: CONF
+    name_ko: 학술대회
   - name: Workshops
-    name_ko: 워크숍
     tag: SHOP
+    name_ko: 워크숍
   - name: Journals
-    name_ko: 학술지
     tag: JRN
-
+    name_ko: 학술지
 filter3:
   - name: Security Top-4
-    name_ko: 보안 4대 학회
     tag: TOP4
+    name_ko: 보안 4대 학회
   - name: A*
-    name_ko: A*
     tag: ASTAR
+    name_ko: A*
   - name: A
-    name_ko: A
     tag: CORE-A
+    name_ko: A
   - name: B
-    name_ko: B
     tag: CORE-B
+    name_ko: B
   - name: C
-    name_ko: C
     tag: CORE-C
+    name_ko: C
   - name: National/Unranked
-    name_ko: 국가 단위 / 미등급
     tag: OTHERS
+    name_ko: 국가 단위 / 미등급
