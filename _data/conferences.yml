@@ -592,6 +592,7 @@
   deadline:
     - 2026-10-02 23:59
   date: April 5-9
+  timezone: EST
   place: Gwangju, South Korea
   tags:
     - SEC
