@@ -12,8 +12,8 @@ github_username: hoyoi05
 github_repo: sec-deadlines
 upstream_url: "https://github.com/sec-deadlines/sec-deadlines.github.io"
 upstream_site: "https://sec-deadlines.github.io/"
-upstream_revision: "b4efd6f765c92cbb29f1a05ff4be205d0dddafe6"
-upstream_updated: "2026-09-28"
+upstream_revision: "67ca74d5a0d8c07eb59ba50513b5a8480cfde4fd"
+upstream_updated: "2026-09-30"
 ai_cfp_checked: "2026-09-11"
 forensics_cfp_checked: "2026-09-11"
 asset_version: "20260911-search-1"
