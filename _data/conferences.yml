@@ -544,6 +544,19 @@
     - CONF
     - JRN
     - CORE-A
+- name: CiC
+  description: IACR Communications in Cryptology
+  year: 2026
+  link: https://cic.iacr.org/page/callforpapers
+  deadline:
+    - 2026-02-02 23:59
+    - 2026-05-04 23:59
+    - 2026-07-27 23:59
+    - 2026-10-26 23:59
+  comment: Volume 3, 2026
+  tags:
+    - CRYPTO
+    - JRN
 - name: C&C
   description: IMA International Conference on Cryptography and Coding
   year: 2026
