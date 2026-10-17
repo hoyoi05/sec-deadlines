@@ -654,14 +654,15 @@
     - CORE-B
 - name: DIMVA
   description: The Conference on Detection of Intrusions and Malware & Vulnerability Assessment
-  year: 2026
-  link: https://www.dimva.org/dimva2026/
+  year: 2027
+  link: https://www.dimva.org/dimva2027/
   dblp: https://dblp.org/db/conf/dimva/index.html
   deadline:
-    - 2025-12-03 23:59
-    - 2026-02-11 23:59
-  date: July 01-03
-  place: Chania, Greece
+    - 2026-12-10 23:59
+    - 2027-02-18 23:59
+  comment: Abstract registration required (1 week before deadline AoE).
+  date: June 30 - July 2
+  place: Enschede, The Netherlands
   tags:
     - SEC
     - CONF
@@ -772,13 +773,13 @@
     - CONF
     - OTHERS
 - name: PAM
-  year: 2026
-  date: March 23-25
+  year: 2027
+  date: March 22-24
   description: Passive and Active Measurement Conference
   dblp: https://dblp.org/db/conf/pam/index.html
-  link: https://pam2026.at/
+  link: https://pam2027.furg.br/
   deadline:
-    - 2025-10-08 23:59
+    - 2026-11-06 23:59
   comment: Abstract registration required (1 week before deadline AoE).
   place: Virtual
   tags:
@@ -863,16 +864,15 @@
     - CONF
     - CORE-C
 - name: IMC
-  year: 2026
+  year: 2027
   description: ACM Internet Measurement Conference
-  link: https://conferences.sigcomm.org/imc/2026/
+  link: https://conferences.sigcomm.org/imc/2027/
   dblp: https://dblp.org/db/conf/imc/index.html
   deadline:
-    - 2025-11-20 23:59
-    - 2026-04-29 23:59
+    - 2026-11-17 23:59
   comment: Abstract registration required (1 week before deadline AoE).
-  date: November 3-6
-  place: Karlsruhe, Germany
+  date: October 25-29
+  place: Atlanta, GA, USA
   tags:
     - SEC
     - PRIV
