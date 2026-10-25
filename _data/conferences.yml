@@ -305,12 +305,12 @@
     - OTHERS
 - name: PrivaCI
   description: The Annual Symposium on Applications of Contextual Integrity
-  year: 2026
-  link: https://privaci.info/symposium/2026/cfp.html
+  year: 2027
+  link: https://privaci.info/symposium/2027/cfp.html
   deadline:
-    - 2026-02-13 23:59
-  date: June 24-25
-  place: Urbana-Champaign, USA
+    - 2027-03-05 23:59
+  date: June 10-11
+  place: Quebec City, Canada
   tags:
     - PRIV
     - CONF
@@ -1059,12 +1059,12 @@
   description: >-
     International Conference on Network and System Security and International Symposium on Security and Privacy in Social Networks and Big
     Data
-  year: 2024
-  link: http://nsclab.org/nss-socialsec2024/index.html
+  year: 2026
+  link: https://nsclab.org/nss2026/
   deadline:
-    - 2024-07-01 23:59
-  date: Nov 20-22
-  place: Abu Dhabi, UAE
+    - 2026-09-30 23:59
+  date: October 30 - November 1
+  place: Hangzhou, China
   tags:
     - SEC
     - PRIV
@@ -1139,12 +1139,12 @@
     - OTHERS
 - name: ITASEC
   description: Italian Conference on Cybersecurity
-  year: 2025
+  year: 2027
   link: https://itasec.it/
   deadline:
-    - 2024-12-09 23:59
-  date: February 3-8
-  place: Bologna, IT
+    - 2026-10-30 23:59
+  date: February 8-12
+  place: Siena, Tuscany, Italy
   tags:
     - SEC
     - CONF
@@ -2008,13 +2008,13 @@
     - OTHERS
 - name: PQCrypto
   description: International Conference on Post-Quantum Cryptography
-  year: 2026
-  link: https://pqcrypto2026.irisa.fr/
+  year: 2027
+  link: https://pqcrypto2027.ca/
   deadline:
-    - 2025-11-07 23:59
-  comment: Initial submission with abstract required Oct 31st.
-  date: April 14-16
-  place: Saint-Malo, France
+    - 2026-11-24 23:59
+  comment: Abstract registration required (1 week before deadline AoE).
+  date: May 12-14
+  place: Waterloo, Canada
   tags:
     - CRYPTO
     - CONF
