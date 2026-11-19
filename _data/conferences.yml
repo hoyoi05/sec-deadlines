@@ -142,14 +142,14 @@
     - CORE-B
 - name: WiSec
   description: ACM Conference on Security and Privacy in Wireless and Mobile Networks
-  year: 2026
-  link: https://wisec26.events.cispa.de/
+  year: 2027
+  link: https://ntu-dtc.github.io/wisec2027/
   dblp: https://dblp.org/db/conf/wisec/index.html
   deadline:
-    - 2025-11-18 23:59
-    - 2026-03-03 23:59
-  date: June 30 - July 3
-  place: Saarbrücken, Germany
+    - 2026-11-30 23:59
+    - 2027-02-15 23:59
+  date: June 29 - July 2
+  place: Singapore
   tags:
     - SEC
     - PRIV
@@ -968,25 +968,25 @@
     - FORENSICS
 - name: ICSE
   description: IEEE/ACM International Conference on Software Engineering
-  year: 2027
-  link: https://conf.researchr.org/home/icse-2027
+  year: 2028
+  link: https://conf.researchr.org/home/icse-2028
   deadline:
-    - 2026-06-30 23:59
+    - 2027-07-01 23:59
   comment: Abstract registration required (1 week before deadline AoE).
-  date: April 25 - May 1
-  place: Dublin, Ireland
+  date: April 29 - May 7
+  place: Hawaii, USA
   tags:
     - SEC
     - CONF
     - ASTAR
 - name: ASE
   description: IEEE/ACM Automated Software Engineering
-  year: 2026
-  link: https://conf.researchr.org/home/ase-2026
+  year: 2027
+  link: https://conf.researchr.org/home/ase-2027
   deadline:
-    - 2026-03-26 23:59
-  date: October 12 - 16
-  place: Munich, Germany
+    - 2027-03-10 23:59
+  date: October 24 - 28
+  place: El Paso, Texas, United States
   tags:
     - SEC
     - CONF
@@ -1706,14 +1706,14 @@
     - OTHERS
 - name: WOOT
   description: USENIX WOOT Conference on Offensive Technologies
-  year: 2026
-  link: https://www.usenix.org/conference/woot26/call-for-papers
-  comment: Co-located with USENIX Security; up-and-coming track deadline is Mar 3 (cycle-2)
+  year: 2027
+  link: https://www.usenix.org/conference/woot27/call-for-papers
+  comment: Co-located with USENIX Security
   deadline:
-    - 2025-12-12 23:59
-    - 2026-03-03 23:59
-  date: August 10–11
-  place: Baltimore, MD, USA
+    - 2026-12-17 23:59
+    - 2027-03-02 23:59
+  date: August 9–10
+  place: Denver, CO, USA
   tags:
     - SEC
     - PRIV
@@ -2790,12 +2790,12 @@
     - CRYPTO
 - name: IFIP WNDSS
   description: IFIP International Workshop on Network and Distributed Systems Security
-  year: 2025
+  year: 2027
   link: https://ifiptc11.org/wg114-events/wg114-workshop
   deadline:
-    - 2025-01-31 23:59
-  date: May 23
-  place: Maribor, Slovenia
+    - 2026-12-22 23:59
+  date: June 15-16
+  place: Linköping, Sweden
   tags:
     - SEC
     - SHOP
@@ -2963,4 +2963,17 @@
     - SEC
     - PRIV
     - SHOP
+    - OTHERS
+- name: ADIoT
+  description: The International Conference on Attacks and Defenses for Internet-of-Things
+  year: 2026
+  link: https://adiot.sptagelab.org/2026/
+  deadline:
+    - 2026-11-21 23:59
+  timezone: Asia/Shanghai
+  date: December 18-20
+  place: Hangzhou, China
+  tags:
+    - SEC
+    - CONF
     - OTHERS
